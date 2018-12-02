@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>向父组件传值</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	</head>
+
+	<body>
+		<div id="app">
+			<propcomponent v-for="aa in aaa" v-bind:title="aa.title" v-bind:hehe="aa.hehe"  v-bind:aa="aa"></propcomponent>
+			<p>
+				
+			</p>
+		
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data:{
+				aaa:[{
+					"title":"这是一个title",
+					"hehe": "这是一个呵呵"
+				}]
+			}
+		})
+	</script>
+
+</html>

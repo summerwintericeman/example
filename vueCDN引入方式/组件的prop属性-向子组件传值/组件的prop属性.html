@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>vue组件的prop属性使用</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	</head>
+
+	<body>
+		<div id="app">
+			<propcomponent v-for="aa in aaa" v-bind:title="aa.title" v-bind:hehe="aa.hehe"  v-bind:aa="aa"></propcomponent>
+			<p>
+				这个用法表明我们可以通过在使用组件的时候，通过给组件添加属性的方式来给组件传值，这些值可以在组件内部被使用
+				可适用于跳转传递请求参数的值，这里注意,但我们的数据量较少的时候可以通过直接一个个的绑定来传递，当数据量较多的时候
+				可以通过传递一个数组或者对象的形式直接传递所有的数据，但需要注意不能漏写
+			</p>
+		
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data:{
+				aaa:[{
+					"title":"这是一个title",
+					"hehe": "这是一个呵呵"
+				}]
+			}
+		})
+	</script>
+
+</html>

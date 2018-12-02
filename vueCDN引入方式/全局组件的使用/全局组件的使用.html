@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>vue全局组件的使用</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	</head>
+
+	<body>
+		<div id="app">
+			<allcomponent></allcomponent>
+			<!--组件是可以被复用的-->
+			<allcomponent></allcomponent>
+			<p>
+				全局组件中的命名方式以字母下划线为标准，加入大写的会引起错误，
+				例如组件名字 allcomponent 和 allComponent ,
+				在html文件的标签中写入大写依旧会被识别为小写的allcomponent，
+				所以在js中注册组件的时候需要标准的用小写的方式.
+				注意在组件定义的时候，组件中的data的定义采用的是函数的形式，
+				一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝，
+				确保组件在被复用的时候不会产生数据混淆的情况
+			</p>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app'
+		})
+	</script>
+
+</html>
