@@ -5,11 +5,14 @@ Vue.component('propcomponent', {
 			mess: "prop的测试"
 		}
 	},
-	props: ["aa"],
 	methods: {
 		fn() {
-			console.log(this.mess);
+			console.log("触发了函数");
+			
+			
 		}
 	},
-	template: '<div><div class="headClass" v-on:click="fn"> {{ mess }}</div><div>{{aa.title}} {{aa.hehe}}</div></div>'
+	template: '<div><div class="headClass" v-on:click="fn"> 点我触发子组件的函数</div>' +
+	'<div class="headClass" v-on:click="$emit(\'enlarge\')"> 点我向父组件发消息，调用父组件函数</div>'+
+	'<div class="headClass"  v-on:click="$emit(\'enlarge\',0.05)"> 点我向父组件发消息,传递一些参数</div></div>'
 })

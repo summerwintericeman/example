@@ -11,9 +11,13 @@
 
 	<body>
 		<div id="app">
-			<propcomponent v-for="aa in aaa" v-bind:title="aa.title" v-bind:hehe="aa.hehe"  v-bind:aa="aa"></propcomponent>
-			<p>
+				<div :style="{ fontSize: postFontSize + 'rem'}">
+					<propcomponent   v-on:enlarge="enlargeFn"></propcomponent>	
+				</div>
 				
+			<p>
+				调用内建的 $emit 方法并传入事件的名字，来向父级组件触发一个事件，注意这里触发的是事件名字不是函数名字，
+				事件会通过函数名字调用函数
 			</p>
 		
 		</div>
@@ -25,10 +29,19 @@
 		new Vue({
 			el: '#app',
 			data:{
-				aaa:[{
-					"title":"这是一个title",
-					"hehe": "这是一个呵呵"
-				}]
+				mess: "mess",
+				postFontSize: 0.14
+			},
+			methods:{
+				enlargeFn(event){
+					console.log(event);
+					if(event){
+						this.postFontSize += event;
+					}else{
+						this.postFontSize += 0.1;
+					}
+					
+				}
 			}
 		})
 	</script>
