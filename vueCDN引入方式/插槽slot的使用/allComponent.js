@@ -12,7 +12,7 @@ Vue.component('propcomponent', {
 			
 		}
 	},
-	template: '<div><div class="headClass back_gradient" v-on:click="fn"> 点我触发子组件的函数</div>' +
-	'<div class="headClass back_gradient" v-on:click="$emit(\'enlarge\')"> 点我向父组件发消息，调用父组件函数</div>'+
+	template: '<div> <div class="headClass back_gradient" v-on:click="fn"> 点我触发子组件的函数</div>' +
+	'<slot></slot><div class="headClass back_gradient" v-on:click="$emit(\'enlarge\')"> 点我向父组件发消息，调用父组件函数</div>'+
 	'<div class="headClass back_gradient"  v-on:click="$emit(\'enlarge\',0.05)"> 点我向父组件发消息,传递一些参数</div></div>'
 })

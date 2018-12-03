@@ -12,11 +12,12 @@
 	<body>
 		<div id="app">
 				<div :style="{ fontSize: postFontSize + 'rem'}">
-					<propcomponent   v-on:enlarge="enlargeFn">  </propcomponent>
+					<propcomponent   v-on:enlarge="enlargeFn"> 这里看到slot </propcomponent>
 				</div>
 				
 			<p>
-				插槽slot的使用，在组件使用的时候，我们也可能在组件的标签中写入一些内容，
+				插槽slot的使用，在组件使用的时候，我们也可能在组件的标签中写入一些内容，当没有插槽的时候写在之间的内容可能报错或者
+				不被渲染出来，我们需要通过slot来告诉模板有些内容需要被渲染，在模板中家啊如标签slot，并且根据加入位置的不同内容添加的位置也不同
 			</p>
 		
 		</div>
