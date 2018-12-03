@@ -11,9 +11,18 @@ body{
 .headClass{
 	height: 0.44rem;
 	width: 100%;
-	background-color: black;
 	color: white;
 	text-align: center;
 	line-height: 0.44rem;
 	margin-bottom: 0.05rem;
+}
+.back_gradient {
+	background: -webkit-linear-gradient(left, #FF1E00, #FFC100);
+	/* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(left, #FF1E00, #FFC100);
+	/* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(left, #FF1E00, #FFC100);
+	/* Firefox 3.6 - 15 */
+	background: linear-gradient(left, #FF1E00, #FFC100);
+	/* 标准的语法 */
 }
