@@ -11,6 +11,10 @@ body{
 a{
 	text-decoration: none;
 }
+p{
+	line-height: 0.20rem;
+	margin-bottom: 0.05rem;
+}
 .headClass{
 	height: 0.44rem;
 	width: 100%;
