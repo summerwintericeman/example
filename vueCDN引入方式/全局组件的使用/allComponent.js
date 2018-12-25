@@ -11,5 +11,5 @@ Vue.component('allcomponent', {
   		alert(this.mess);	
   	}
   },
-  template: '<div class="headClass" v-on:click="fn"> {{ mess }} </div>'
+  template: '<div class="headClass back_gradient" v-on:click="fn"> {{ mess }} </div>'
 })

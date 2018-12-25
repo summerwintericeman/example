@@ -11,5 +11,5 @@ Vue.component('propcomponent', {
 			console.log(this.mess);
 		}
 	},
-	template: '<div><div class="headClass" v-on:click="fn"> {{ mess }}</div><div>{{aa.title}} {{aa.hehe}}</div></div>'
+	template: '<div><div class="headClass back_gradient" v-on:click="fn"> {{ mess }}</div><div>{{aa.title}} {{aa.hehe}}</div></div>'
 })

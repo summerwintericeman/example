@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>特定标签内部的元素</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+	<style type="text/css">
+
+	</style>
+
+	<body>
+		<div id="app">
+
+			<propcomponent1> </propcomponent1>
+			<p>
+				有些 HTML 元素，诸如 ul、ol、table 和 select，对于哪些元素可以出现 在其内部是有严格限制的。 而有些元素，诸如 li、tr 和 option，只能出现在其它某些特定的元素内部。 例如在标签table 里面直接使用自定义的组件 blog-post-row blog-post-row 这个自定义组件 blog-post-row会被作为无效的内容提升到外部，并导致最终渲染结果出错。 幸好这个特殊的 is 特性给了我们一个变通的办法： 需要注意的是如果我们从以下来源使用模板的话，这条限制是不存在的： 字符串 (例如：template: '...') 单文件组件 (.vue)
+				来自于：
+				script type=text/x-template
+			</p>
+
+			<table>
+				<tr is="blog-post-row"></tr>
+				<tr is="blog-post-row"></tr>
+			</table>
+			
+			
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/components.html#解析-DOM-模板时的注意事项"> 查看原文</a>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+
+			}
+		})
+	</script>
+
+</html>
