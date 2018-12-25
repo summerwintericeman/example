@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>事件</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<p>最基本的v-on绑定事件这里就不说了</p>
+			<allcomponent></allcomponent>
+			<p>除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法：</p>
+			<div id="example-3">
+				<button v-on:click="say('hi')">Say hi</button>
+				<button v-on:click="say('what')">Say what</button>
+			</div>
+			<br />
+			<p>在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法：</p>
+			<button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+			<br />
+			<p>事件修饰符</p>
+			<br />
+			<p>.stop  .prevent  .capture  .self  .once  .passive</p>
+			<br />
+			<p>按键修饰符</p>
+			<p>.enter .tab .delete (捕获“删除”和“退格”键) .esc .space .up .down .left .right</p>
+			
+			
+			
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/events.html"> 查看原文</a>
+		
+						
+		
+		
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+				say(message) {
+					alert(message)
+				},
+				warn(message, event) {
+					// 现在我们可以访问原生事件对象
+					console.log(event)
+					if(event) event.preventDefault()
+					alert(message)
+				},
+				doThis(){
+					console.log("hehehhe");
+				}
+			}
+		})
+	</script>
+
+</html>
