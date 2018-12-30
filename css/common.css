@@ -8,6 +8,13 @@ html{
 body{
 	font-size: 0.14rem;
 }
+a{
+	text-decoration: none;
+}
+p{
+	line-height: 0.20rem;
+	margin-bottom: 0.05rem;
+}
 .headClass{
 	height: 0.44rem;
 	width: 100%;
@@ -25,4 +32,16 @@ body{
 	/* Firefox 3.6 - 15 */
 	background: linear-gradient(left, #FF1E00, #FFC100);
 	/* 标准的语法 */
+}
+.button{
+	margin: 0 auto;
+	display: block;
+	height: 0.44rem;
+	width: 70%;
+	color: white;
+	line-height: 0.44rem;
+	font-size: 0.15rem;
+	text-align: center;
+	border-radius: 0.05rem;
+	margin-top: 0.1rem;
 }

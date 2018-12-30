@@ -14,6 +14,7 @@
 
 //封装的事件函数用来实现时间戳转换年月日时分秒组合时间和周几   才采用$.fn的方式进行插件封装，其实完全可以用js文件解决这里只是实验封装
 
+//$.extend()的方法  只能封装静态的文件  对于一般的js代码可以静态封装，需要创建示例并哟关于节点的需要动态封装
 ;
 (function($) {
 	$.fn.getFormatDate = function(timestamp, model) {
@@ -23,71 +24,77 @@
 		} else if(timestamp.length == 10) {
 			timestamp = parseInt(timestamp + '000');
 		}
-		
-		var newDate = new Date(timestamp);
+
+		var newDate = new Date(timestamp),
+			year = newDate.getFullYear(),
+			month = (newDate.getMonth() + 1) < 10 ? '0' + (newDate.getMonth() + 1) : (newDate.getMonth() + 1),
+			day = newDate.getDate() < 10 ? '0' + newDate.getDate() : newDate.getDate(),
+			hour = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours(),
+			minute = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes(),
+			second = newDate.getSeconds() < 10 ? '0' + newDate.getSeconds() : newDate.getSeconds();
 		switch(model) {
 			case "year":
-				return newDate.getFullYear();
+				return year;
 				break;
 			case "month":
-				return newDate.getMonth() + 1;
+				return month;
 				break;
 			case "day":
-				return newDate.getDate();
+				return day;
 				break;
 			case "hour":
-				return newDate.getHours();
+				return hour;
 				break;
 			case "minute":
-				return newDate.getMinutes();
+				return minute;
 				break;
 			case "second":
-				return newDate.getSeconds();
+				return second;
 				break;
 			case "yyyy-mm":
-				return newDate.getFullYear() + "-" + (newDate.getMonth() + 1);
+				return year + "-" + month;
 				break;
 			case "yyyy-mm-dd":
-				return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate();
+				return year + "-" + month + "-" + day;
 				break;
 			case "yyyy-mm-dd-h":
-				return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate() + " " + newDate.getHours();
+				return year + "-" + month + "-" + day + " " + hour;
 				break;
 			case "yyyy-mm-dd-h-m":
-				return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes();
+				return year + "-" + month + "-" + day + " " + hour + ":" + minute;
 				break;
 			case "yyyy-mm-dd-h-m-s":
-				return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+				return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 				break;
 			case "week":
 				var dateTime = newDate + "",
-				gameTime = '',
-		    	dateTime =  dateTime.slice(0,3);
-		    	switch(dateTime){
-				 	 case "Mon": 
-				 	 gameTime = "星期一";
-				 	 break;
-				 	 case "Tue": 
-				 	 gameTime = "星期二";
-				 	 break;
-				 	 case "Wed": 
-				 	 gameTime = "星期三";
-				 	 break;
-				 	 case "Thu": 
-				 	 gameTime = "星期四";
-				 	 break;
-				 	 case "Fri": 
-				 	 gameTime = "星期五";
-				 	 break;
-				 	 case "Sat": 
-				 	 gameTime = "星期六";
-				 	 break;
-				 	 case "Sun": 
-				 	 gameTime = "星期日";
-				 	 break;
+					gameTime = '',
+					dateTime = dateTime.slice(0, 3);
+				switch(dateTime) {
+					case "Mon":
+						gameTime = "星期一";
+						break;
+					case "Tue":
+						gameTime = "星期二";
+						break;
+					case "Wed":
+						gameTime = "星期三";
+						break;
+					case "Thu":
+						gameTime = "星期四";
+						break;
+					case "Fri":
+						gameTime = "星期五";
+						break;
+					case "Sat":
+						gameTime = "星期六";
+						break;
+					case "Sun":
+						gameTime = "星期日";
+						break;
 				}
-		    	return gameTime;
-		    	break;
+				return gameTime;
+				break;
 		}
 	}
 })(jQuery);

@@ -2,7 +2,7 @@
 Vue.component('allcomponent', {
   data: function () {
     return {
-      mess: "全局组件的测试"
+      mess: "事件的测试"
     }
   },
   methods: {

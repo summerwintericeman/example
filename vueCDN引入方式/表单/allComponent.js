@@ -5,11 +5,12 @@ Vue.component('propcomponent', {
 			mess: "prop的测试"
 		}
 	},
-	props: ["aa"],
 	methods: {
 		fn() {
-			console.log(this.mess);
+			console.log("触发了函数");
+			
+			
 		}
 	},
-	template: '<div><div class="headClass back_gradient" v-on:click="fn"> {{ mess }}</div><div>{{aa.title}} {{aa.hehe}}</div></div>'
+	template: '<div></div>'
 })

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>表单的使用</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<propcomponent></propcomponent>
+			<p>
+				v-model 指令在表单 input、textarea 及 select 元素上创建双向数据绑定。 v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据
+
+			</p>
+			<p>
+				v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。 你应该通过 JavaScript 在组件的 data 选项中声明初始值。
+			</p>
+			<!------------------------------->
+			<p>input的数据绑定</p>
+			<input v-model="message" placeholder="edit me">
+			<p>Message is: {{ message }}</p>
+			<!------------------------------->
+			<p>多行文本</p>
+			<span>Multiline message is:</span>
+			<p style="white-space: pre-line;">{{ message }}</p>
+			<textarea v-model="message" placeholder="add multiple lines"></textarea>
+			<!------------------------------->
+			<p>单个复选框</p>
+			<input type="checkbox" id="checkbox" v-model="checked">
+			<label for="checkbox">{{ checked }}</label>
+			<!------------------------------->
+			<p>多个复选框</p>
+			<div id='example-3'>
+				<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+				<label for="jack">Jack</label>
+				<input type="checkbox" id="john" value="John" v-model="checkedNames">
+				<label for="john">John</label>
+				<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+				<label for="mike">Mike</label>
+				<br>
+				<span>Checked names: {{ checkedNames }}</span>
+			</div>
+			<!------------------------------>
+			<p>单选框</p>
+			<div id="example-4">
+				<input type="radio" id="one" value="One" v-model="picked">
+				<label for="one">One</label>
+				<br>
+				<input type="radio" id="two" value="Two" v-model="picked">
+				<label for="two">Two</label>
+				<br>
+				<span>Picked: {{ picked }}</span>
+			</div>
+			<!----------------------------->
+			<p>选择框</p>
+			<div id="example-5">
+				<select v-model="selected">
+					<option disabled value="">请选择</option>
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<span>Selected: {{ selected }}</span>
+			</div>
+			<p>如果 v-model 表达式的初始值未能匹配任何选项， select元素将被渲染为“未选中”状态。在 iOS 中， 这会使用户无法选择第一个选项。因为这样的情况下， iOS 不会触发 change 事件。因此， 更推荐像上面这样提供一个值为空的禁用选项。
+			</p>
+			<!----------------------------->
+			<p>选择框多选</p>
+			<div id="example-6">
+				<select v-model="selectedArr" multiple style="width: 50px;">
+					<option>A</option>
+					<option>B</option>
+					<option>C</option>
+				</select>
+				<br>
+				<span>Selected: {{ selectedArr }}</span>
+			</div>
+			<!---------------------------->
+			<p>修饰符</p>
+			<p>v-model.lazy</p>
+			<p>在默认情况下，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。你可以添加 lazy 修饰符，从而转变为使用 change 事件进行同步：</p>
+			<!-- 在“change”时而非“input”时更新 -->
+			<input v-model.lazy="msgChange" >
+			<p>{{msgChange}}</p>
+			<br />
+			<p>v-model.number</p>
+			<p>如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符：</p>
+			<p>这通常很有用，因为即使在 type="number" 时，HTML 输入元素的值也总会返回字符串。如果这个值无法被 parseFloat() 解析，则会返回原始的值。</p>
+			<input v-model.number="age" type="number">
+			<br />			
+			<p>v-model.trim</p>
+			<p>如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：</p>
+			<p>输入的可以被去除，初始直接赋值的还是不会受到影响如果有空格是不会被处理的</p>
+			<input v-model.trim="spaceMessage">
+			
+			<!--原文链接地址-->
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/forms.html"> 查看原文</a>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				message: "绑定的数据",
+				checked: true,
+				checkedNames: [],
+				picked: "",
+				selected: "",
+				selectedArr: [],
+				msgChange: "只有change事件才会影响",
+				age: "12",
+				spaceMessage: "   xxxxxx    "
+			},
+			methods: {
+				
+			}
+		})
+	</script>
+
+</html>

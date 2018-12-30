@@ -6,20 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<title>向父组件传值</title>
 		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
 	</head>
 
 	<body>
 		<div id="app">
-				<div :style="{ fontSize: postFontSize + 'rem'}">
-					<propcomponent   v-on:enlarge="enlargeFn"> xxxxxxxxxxx</propcomponent>	
-				</div>
-				
+			<div :style="{ fontSize: postFontSize + 'rem'}">
+				<propcomponent v-on:enlarge="enlargeFn"> xxxxxxxxxxx</propcomponent>
+			</div>
+
 			<p>
-				调用内建的 $emit 方法并传入事件的名字，来向父级组件触发一个事件，注意这里触发的是事件名字不是函数名字，
-				事件会通过函数名字调用函数
+				调用内建的 $emit 方法并传入事件的名字，来向父级组件触发一个事件，注意这里触发的是事件名字不是函数名字， 事件会通过函数名字调用函数
 			</p>
-		
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/components.html#通过事件向父级组件发送消息"> 查看原文</a>
+
 		</div>
 
 	</body>
@@ -28,19 +28,19 @@
 	<script>
 		new Vue({
 			el: '#app',
-			data:{
+			data: {
 				mess: "mess",
 				postFontSize: 0.14
 			},
-			methods:{
-				enlargeFn(event){
+			methods: {
+				enlargeFn(event) {
 					console.log(event);
-					if(event){
+					if(event) {
 						this.postFontSize += event;
-					}else{
+					} else {
 						this.postFontSize += 0.1;
 					}
-					
+
 				}
 			}
 		})
