@@ -1,16 +1,19 @@
 {
-	"name": "pack",
-	"version": "1.0.0",
-	"description": "",
-	"private": true,
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"lodash": "^4.17.11",
-		"webpack": "^4.28.2",
-		"webpack-cli": "^3.1.2"
-	}
+  "name": "pack",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "lodash": "^4.17.11",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
 }
