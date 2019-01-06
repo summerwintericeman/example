@@ -1,0 +1,753 @@
+global.webpackJsonp([4],[
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(11);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
+app.$mount();
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4109dc7f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(18);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(12)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_4109dc7f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\pages\\counter\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4109dc7f", Component.options)
+  } else {
+    hotAPI.reload("data-v-4109dc7f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main__ = __webpack_require__(3);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// Use Vuex
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      mess: true,
+      allNotice: true,
+      notice: false,
+      order: true,
+      show: false,
+      lotyId: '',
+      issue: '',
+      lotyName: '',
+      time: '',
+      week: '',
+      dataList: [],
+      rulesList: [],
+      redBall: [],
+      blueBall: [],
+      condition: [{
+        lotyId: 10,
+        condition: ['中6红+1蓝', '中6红', '中5红+1蓝', '中5红或4红+1蓝', '中4红或3红+1蓝', '中2红+1蓝或中1红+1蓝或1蓝']
+      }, {
+        lotyId: 11,
+        condition: ['中5红+2蓝', '中5红+2蓝', '中5红+1蓝', '中5红+1蓝', '中5红或4红+2蓝', '中5红或4红+2蓝', '中4红+1蓝或3红+2蓝', '中4红+1蓝或3红+2蓝', '中4红或3红+1蓝或2红+2蓝', '中4红或3红+1蓝或2红+2蓝', '中3红或2红+1蓝或1红2蓝或2蓝']
+      }, {
+        lotyId: 12,
+        condition: ['投注号码与当期公布的中奖号码的3位按位数全部相同', '当期摇出的号码3位数中任意两位数字相同,且投注号码与中奖号码的数字相同顺序不限', '摇出三位号码各不相同，且投注号码的三个数字与当期中奖号码相同,顺序不限']
+      }, {
+        lotyId: 13,
+        condition: ['投注号码与当期公布的中奖号码的3位按位数全部相同', '当期摇出的号码3位数中任意两位数字相同,且投注号码与中奖号码的数字相同顺序不限', '摇出三位号码各不相同，且投注号码的三个数字与当期中奖号码相同,顺序不限']
+      }, {
+        lotyId: 14,
+        condition: ['所选号码与中奖号码全部相同且顺序一致']
+      }, {
+        lotyId: 15,
+        condition: ['投注号码和开奖号码全部相符且排列一致', '投注号码有连续6位号码与开奖号码相同位置的连续6位号码相同', '投注号码有连续5位号码与开奖号码相同位置的连续5位号码相同', '投注号码有连续4位号码与开奖号码相同位置的连续4位号码相同', '投注号码有连续3位号码与开奖号码相同位置的连续3位号码相同', '投注号码有连续2位号码与开奖号码相同位置的连续2位号码相同']
+      }, {
+        lotyId: 16,
+        condition: ['投注号码与当期开奖号码中7个基本号码完全相同,顺序不限', '投注号码与当期开奖号码中任意6个基本号码及特别号码相同,顺序不限', '投注号码与当期开奖号码中任意6个基本号码相同,顺序不限', '投注号码与当期开奖号码中任意5个基本号码及特别号码相同,顺序不限', '投注号码与当期开奖号码中任意5个基本号码相同,顺序不限', '投注号码与当期开奖号码中任意4个基本号码及特别号码相同,顺序不限', '投注号码与当期开奖号码中任意4个基本号码相同,顺序不限']
+      }]
+    };
+  },
+
+  computed: {
+    count: function count() {
+      return __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].state.count;
+    }
+  },
+  methods: {
+    increment: function increment() {
+      __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].commit('increment');
+    },
+    decrement: function decrement() {
+      __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].commit('decrement');
+    },
+    allNoticeFn: function allNoticeFn() {
+      //console.log('隐藏所有的提示')
+      this.allNotice = false;
+    },
+    changeNotice: function changeNotice() {
+      //改变是否显示提示信息
+      this.notice = !this.notice;
+      //存储是否提示的选择
+      var value = 0;
+      if (this.notice) {
+        value = 1;
+      }
+      wx.setStorage({
+        key: "notice",
+        data: value
+      });
+    },
+    skipHistory: function skipHistory(lotyId) {
+      //console.log('跳转到历史记录');
+      wx.redirectTo({
+        url: '/pages/history/main?lotyId=' + lotyId
+      });
+    },
+    orderFun: function orderFun(e) {
+      console.log(e.mp.detail.formId);
+      var formId = e.mp.detail.formId;
+
+      if (formId = "the formId is a mock one") {
+        //表示是在开发环境没有真正的formId
+        formId = '';
+      }
+      var timestamp = parseInt(new Date().getTime() / 1000) + 604800;
+      formId = {
+        formId: formId,
+        endTime: timestamp
+        //获取forId并拼接
+      };var value = wx.getStorageSync('formId');
+      if (formId) {
+        //防止电脑测试时加入空的formId
+        if (value.length == 30) {
+          value.splice(0, 1);
+        }
+        value.push(formId);
+      }
+      var tempStr = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(value);
+      //  	for(var i = 0; i < value.length; i++){
+      //  		if(i == value.length-1 ){
+      //  			tempStr = tempStr +  value[i] ;
+      //  		}else{
+      //  			tempStr = tempStr +  value[i] + ',';
+      //  		}    		
+      //  	}
+      var lotyId = this.lotyId;
+      console.log(lotyId);
+      console.log(tempStr);
+      console.log(formId);
+      //赋予新的formId的值
+      formId = tempStr;
+      console.log(formId);
+      //  	表示要订阅
+      wx.login({
+        success: function success(res) {
+          console.log(res);
+          console.log(res.code);
+          wx.request({
+            //          url: 'https://api.lottery666.com/miniapp/awardSubscribe',
+            url: 'https://api.dev.lottery666.com/miniapp/saveFormIds',
+            data: {
+              code: res.code,
+              opt: 'add',
+              loty: lotyId,
+              form_id: formId
+            },
+            method: 'POST',
+            success: function success(res) {
+              console.log(res.data.code);
+              //有请求数据表示已经被订阅过
+              if (res.data.code == 200) {
+                console.log('订阅成功');
+              }
+            }
+          });
+        }
+      });
+      //console.log('订阅的函数');
+      var flag = true;
+      try {
+        var value = wx.getStorageSync('order');
+        if (value && value.length > 0) {
+          value = JSON.parse(value);
+          console.log(value);
+          for (var i = 0; i < value.length; i++) {
+            if (lotyId == value[i]) {
+              //表示已经是订阅过的
+              flag = false;
+              break;
+            }
+          }
+          if (flag) {
+            //表示没有订阅过
+            this.show = true;
+            this.order = false;
+            value.push(lotyId);
+            value = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(value);
+            wx.setStorage({
+              key: "order",
+              data: value
+            });
+          } else {
+            //是否提示已经订阅过
+            console.log('已经订阅过');
+          }
+        } else {
+          this.show = true;
+          this.order = false;
+          var temp = [];
+          temp.push(lotyId);
+          temp = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(temp);
+          wx.setStorage({
+            key: "order",
+            data: temp
+          });
+        }
+      } catch (e) {}
+    },
+    closeOrder: function closeOrder() {
+      //console.log('关闭订阅函数');
+      this.show = false;
+    }
+  },
+  created: function created() {},
+  onShareAppMessage: function onShareAppMessage(res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target);
+    }
+    return {
+      title: '今天中了么',
+      //path: '/pages/counter/main?lotyId=' + this.lotyId + '&issue=' + this.issue + '&lotyName=' + this.lotyName
+      path: '/pages/index/main?lotyId=' + this.lotyId + '&issue=' + this.issue + '&lotyName=' + this.lotyName,
+      success: function success() {
+        console.log('分享成功');
+      },
+      fail: function fail() {
+        console.log('分享失败');
+      }
+    };
+  },
+  onLoad: function onLoad(option) {
+    //修改页面的标题
+    wx.setNavigationBarTitle({
+      title: '开奖详情'
+    });
+    //判断是否显示提示信息
+    var noticeTemp = wx.getStorageSync('notice');
+    if (noticeTemp) {
+      //console.log(noticeTemp);
+      this.allNotice = false;
+    } else {
+      this.allNotice = true;
+    }
+    //console.log(option);
+    var lotyId = option.lotyId,
+        issue = option.issue,
+        lotyName = __WEBPACK_IMPORTED_MODULE_2__main__["default"].getName(lotyId);
+    this.lotyId = lotyId;
+    this.issue = issue;
+    this.lotyName = lotyName;
+    //判断是否订阅过
+    this.order = true;
+    var value = wx.getStorageSync('order');
+    if (value && value.length > 0) {
+      value = JSON.parse(value);
+      //console.log(value)
+      for (var i = 0; i < value.length; i++) {
+        if (lotyId == value[i]) {
+          //表示已经是订阅过的
+          this.order = false;
+          break;
+        }
+      }
+    }
+    //调用接口获取数据
+    var that = this;
+    wx.request({
+      url: 'https://api.lottery666.com/info/szcawarddetail/' + lotyId + '/' + issue + '&jumpType=zixun',
+      data: {
+        identity: 'com.houcai.letoula',
+        platform: '3'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function success(res) {
+        //console.log(res.data);
+        if (res.data.code == 200) {
+          console.log(res.data.data);
+          var time = res.data.data.openTime;
+          time = new Date(time * 1000);
+          var Y = time.getFullYear() + '-',
+              M = (time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '月',
+              D = time.getDate() + '号',
+              h = time.getHours() + ':',
+              m = time.getMinutes(),
+              s = time.getSeconds();
+          var week = '';
+          if (time.getDay() == 0) week = '周日';
+          if (time.getDay() == 1) week = '周一';
+          if (time.getDay() == 2) week = '周二';
+          if (time.getDay() == 3) week = '周三';
+          if (time.getDay() == 4) week = '周四';
+          if (time.getDay() == 5) week = '周五';
+          if (time.getDay() == 6) week = '周六';
+          that.time = M + D;
+          that.week = h + m + '(' + week + ')';
+          that.dataList = res.data.data;
+          //处理规则
+          //console.log(res.data.data.levels)
+          var tempRules = [];
+          for (var i = 0; i < that.condition.length; i++) {
+            if (that.condition[i].lotyId == lotyId) {
+              tempRules = that.condition[i].condition;
+            }
+          }
+          var allRules = [];
+          for (var i = 0; i < res.data.data.levels.length; i++) {
+            allRules.push({
+              'levelName': res.data.data.levels[i].levelName,
+              'awardNum': res.data.data.levels[i].awardNum,
+              'bonus': res.data.data.levels[i].bonus,
+              'rules': tempRules[i]
+            });
+          }
+          that.rulesList = allRules;
+          //console.log(allRules);
+          //处理开奖码
+          var codeStr = res.data.data.openCode;
+          var List1 = [];
+          if (codeStr) {
+            List1 = codeStr.split('|');
+            var List2 = List1[0].split(',');
+            var List3 = [];
+            if (List1.length > 1) {
+              List3 = List1[1].split(',');
+            } else {
+              List3 = [];
+            }
+          }
+          that.redBall = List2;
+          that.blueBall = List3;
+        }
+      }
+    });
+    //		    wx.login({
+    //      success: (res) => {
+    //      	console.log(res);
+    //      	console.log(res.code);
+    //      	wx.request({
+    //          url: 'https://api.lottery666.com/miniapp/awardSubscribe',
+    //          data: {
+    //            code: res.code,
+    //            opt: 'add',
+    //            loty: lotyId
+    //          },
+    //          method: 'POST',
+    //          success: function(res){
+    //          	console.log(res.data.code);
+    //          	//有请求数据表示已经被订阅过
+    //          	if(res.data.code == 200){
+    //          		//表示订阅过
+    //          	var value = wx.getStorageSync('order');   
+    //          	console.log(value);
+    //            if (value && value.length > 0) {
+    //     	          value = JSON.parse(value);
+    //     	          console.log(value)
+    ////            for(var i = 0; i < value.length; i++){
+    ////     	          if(lotyId == value[i]){
+    ////     		          //表示记录中已经有了
+    ////                  that.order = false;
+    ////     		          break;
+    ////     	          }
+    ////            }
+    //		          }
+    //          	wx.setStorage({
+    //                key:"order",
+    //                data: value
+    //            })  
+    //          	}
+    //          	
+    //
+    //          }
+    //       })
+    //      }
+    //    })
+  }
+});
+
+/***/ }),
+/* 14 */,
+/* 15 */,
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(17);
+// https://vuex.vuejs.org/zh-cn/intro.html
+// make sure to call Vue.use(Vuex) if using a module system
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
+var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment: function increment(state) {
+      var obj = state;
+      obj.count += 1;
+    },
+    decrement: function decrement(state) {
+      var obj = state;
+      obj.count -= 1;
+    }
+  }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (store);
+
+/***/ }),
+/* 17 */,
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "counter-warp"
+  }, [_c('div', {
+    staticClass: "details"
+  }, [_c('div', {
+    staticClass: "detailMess"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_c('span', [_vm._v(_vm._s(_vm.lotyName))]), _vm._v(" "), _c('span', {
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.skipHistory(_vm.lotyId, _vm.lotyName)
+      }
+    }
+  }, [_vm._v(" 历史开奖 ")]), _vm._v(" "), _c('span', {
+    staticClass: "imgLishi"
+  })]), _vm._v(" "), _c('div', [_c('span', [_vm._v(_vm._s(_vm.issue) + "期 ")]), _vm._v(" "), _c('span', [_vm._v("　" + _vm._s(_vm.time))]), _vm._v(" "), _c('span', [_vm._v("　" + _vm._s(_vm.week))])]), _vm._v(" "), _c('div', {
+    staticClass: "ball"
+  }, [_vm._l((_vm.redBall), function(item, index) {
+    return _c('span', {
+      key: index,
+      staticClass: "redBall"
+    }, [_vm._v(_vm._s(item))])
+  }), _vm._v(" "), _vm._l((_vm.blueBall), function(item1, index1) {
+    return _c('span', {
+      key: index1,
+      staticClass: "blueBall"
+    }, [_vm._v(_vm._s(item1))])
+  })], 2)]), _vm._v(" "), _c('div', {
+    staticClass: "detailMoney"
+  }, [_c('div', {
+    staticClass: "sail"
+  }, [_c('span', [_vm._v("本期销售  (元)")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.dataList.sales))])], 1), _vm._v(" "), _c('div', {
+    staticClass: "allMoney"
+  }, [_c('span', [_vm._v("奖金奖池  (元)")]), _c('br'), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.dataList.prizePool))])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "rules"
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.rulesList), function(item, index) {
+    return _c('div', {
+      key: index
+    }, [_c('span', [_vm._v(_vm._s(item.levelName))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(item.rules))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(item.awardNum))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(item.bonus))])])
+  })], 2), _vm._v(" "), _c('div', {
+    staticClass: "orderShare"
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.order),
+      expression: "order"
+    }],
+    staticClass: "order"
+  }, [_c('form', {
+    attrs: {
+      "report-submit": "true",
+      "eventid": '1'
+    },
+    on: {
+      "submit": _vm.orderFun
+    }
+  }, [_c('button', {
+    attrs: {
+      "form-type": "submit"
+    }
+  }, [_vm._v("订阅")])], 1)], 1), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.order),
+      expression: "!order"
+    }],
+    staticClass: "order order1"
+  }, [_vm._v("已订阅")]), _vm._v(" "), _c('div', {
+    staticClass: "share"
+  }, [_c('button', {
+    attrs: {
+      "open-type": "share"
+    }
+  }, [_vm._v("分享")])], 1)]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.show),
+      expression: "show"
+    }],
+    staticClass: "confirmShow"
+  }, [_c('div', {
+    staticClass: "confirmBtn"
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.closeOrder
+    }
+  }, [_vm._v("我知道了")])])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.allNotice),
+      expression: "allNotice"
+    }],
+    staticClass: "standdard"
+  }, [_vm._m(2), _vm._v(" "), _c('div', {
+    staticClass: "standOk",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.allNoticeFn
+    }
+  }, [_vm._v("\n       \t确定\n       ")]), _vm._v(" "), _c('div', {
+    staticClass: "standConfirm",
+    attrs: {
+      "eventid": '4'
+    },
+    on: {
+      "click": _vm.changeNotice
+    }
+  }, [_c('span', [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.notice),
+      expression: "notice"
+    }]
+  })]), _vm._v(" "), _c('span', [_vm._v("不再提示")])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "top"
+  }, [_c('span', [_vm._v("奖项")]), _vm._v(" "), _c('span', [_vm._v("中奖条件")]), _vm._v(" "), _c('span', [_vm._v("中奖注数")]), _vm._v(" "), _c('span', [_vm._v("每注奖金(元)")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('span'), _vm._v(" "), _c('span', [_vm._v("订阅成功")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "imgSt"
+  }, [_c('img', {
+    attrs: {
+      "src": "../../img/detail/tishi.png"
+    }
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "standArrow"
+  }, [_c('img', {
+    attrs: {
+      "src": "../../img/detail/tishi1.png"
+    }
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "orderShare1"
+  }, [_c('div', {
+    staticClass: "order"
+  }, [_vm._v("订阅")])])
+}]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4109dc7f", esExports)
+  }
+}
+
+/***/ })
+],[10]);
+//# sourceMappingURL=main.js.map

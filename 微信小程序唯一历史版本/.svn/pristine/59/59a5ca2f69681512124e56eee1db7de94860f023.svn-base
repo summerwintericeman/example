@@ -1,0 +1,82 @@
+<template name="index$32ea856b">
+  <view class="_div data-v-4109dc7f counter-warp">
+    <view class="_div data-v-4109dc7f details">
+      <view class="_div data-v-4109dc7f detailMess">
+        <view class="_div data-v-4109dc7f title">
+          <label class="_span data-v-4109dc7f">{{lotyName}}</label>
+          <label bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-4109dc7f"> 历史开奖 </label>
+          <label class="_span data-v-4109dc7f imgLishi"></label>
+        </view>
+        <view class="_div data-v-4109dc7f">
+          <label class="_span data-v-4109dc7f">{{issue}}期 </label>
+          <label class="_span data-v-4109dc7f">　{{time}}</label>
+          <label class="_span data-v-4109dc7f">　{{week}}</label>
+        </view>
+        <view class="_div data-v-4109dc7f ball">
+          <label class="_span data-v-4109dc7f redBall" wx:key="index" key="{{index}}" wx:for="{{redBall}}" wx:for-index="index" wx:for-item="item">{{item}}</label>
+          <label class="_span data-v-4109dc7f blueBall" wx:key="index1" key="{{index1}}" wx:for="{{blueBall}}" wx:for-index="index1" wx:for-item="item1">{{item1}}</label>
+        </view>
+      </view>
+      <view class="_div data-v-4109dc7f detailMoney">
+        <view class="_div data-v-4109dc7f sail">
+          <label class="_span data-v-4109dc7f">本期销售 (元)</label>
+          <view class="_br data-v-4109dc7f"></view>
+          <label class="_span data-v-4109dc7f">{{dataList.sales}}</label>
+        </view>
+        <view class="_div data-v-4109dc7f allMoney">
+          <label class="_span data-v-4109dc7f">奖金奖池 (元)</label>
+          <view class="_br data-v-4109dc7f"></view>
+          <label class="_span data-v-4109dc7f">{{dataList.prizePool}}</label>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-4109dc7f rules">
+      <view class="_div data-v-4109dc7f top">
+        <label class="_span data-v-4109dc7f">奖项</label>
+        <label class="_span data-v-4109dc7f">中奖条件</label>
+        <label class="_span data-v-4109dc7f">中奖注数</label>
+        <label class="_span data-v-4109dc7f">每注奖金(元)</label>
+      </view>
+      <view wx:key="index" key="{{index}}" wx:for="{{rulesList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-4109dc7f">
+        <label class="_span data-v-4109dc7f">{{item.levelName}}</label>
+        <label class="_span data-v-4109dc7f">{{item.rules}}</label>
+        <label class="_span data-v-4109dc7f">{{item.awardNum}}</label>
+        <label class="_span data-v-4109dc7f">{{item.bonus}}</label>
+      </view>
+    </view>
+    <view class="_div data-v-4109dc7f orderShare">
+      <view class="_div data-v-4109dc7f order" bindtap="handleProxy" hidden="{{!(order)}}" data-eventid="{{'1'}}" data-comkey="{{$k}}">订阅</view>
+      <view class="_div data-v-4109dc7f order order1" hidden="{{!(!order)}}">已订阅</view>
+      <view class="_div data-v-4109dc7f share">
+        <button open-type="share" class="_button data-v-4109dc7f">分享</button>
+      </view>
+    </view>
+    <view class="_div data-v-4109dc7f confirmShow" hidden="{{!(show)}}">
+      <view class="_div data-v-4109dc7f confirmBtn">
+        <view class="_div data-v-4109dc7f">
+          <label class="_span data-v-4109dc7f"></label>
+          <label class="_span data-v-4109dc7f">订阅成功</label>
+        </view>
+        <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-4109dc7f">我知道了</view>
+      </view>
+    </view>
+    <view class="_div data-v-4109dc7f standdard" hidden="{{!(allNotice)}}">
+      <view class="_div data-v-4109dc7f imgSt">
+        <image src="/copy-asset/img/detail/tishi.png" class="_img data-v-4109dc7f"></image>
+      </view>
+      <view class="_div data-v-4109dc7f standOk" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"> 确定 </view>
+      <view class="_div data-v-4109dc7f standConfirm" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">
+        <label class="_span data-v-4109dc7f">
+          <view hidden="{{!(notice)}}" class="_div data-v-4109dc7f"></view>
+        </label>
+        <label class="_span data-v-4109dc7f">不再提示</label>
+      </view>
+      <view class="_div data-v-4109dc7f standArrow">
+        <image src="/copy-asset/img/detail/tishi1.png" class="_img data-v-4109dc7f"></image>
+      </view>
+      <view class="_div data-v-4109dc7f orderShare1">
+        <view class="_div data-v-4109dc7f order">订阅</view>
+      </view>
+    </view>
+  </view>
+</template>

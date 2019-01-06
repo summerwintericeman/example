@@ -1,0 +1,17 @@
+<template name="index$3bf893fa">
+  <view class="_div data-v-1fb9e5d2 counter">
+    <view class="_div data-v-1fb9e5d2 bgcolor" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{dataList1}}" wx:for-index="index" wx:for-item="item">
+      <view class="_div data-v-1fb9e5d2 messRight">
+        <label class="_span data-v-1fb9e5d2">{{item.issue}}期</label>
+        <label class="_span data-v-1fb9e5d2">{{item.date}}</label>
+        <view class="_div data-v-1fb9e5d2 ball">
+          <label class="_span data-v-1fb9e5d2 redBall" wx:key="index1" key="{{index1}}" wx:for="{{item.redBall}}" wx:for-index="index1" wx:for-item="item1">{{item1}}</label>
+          <label class="_span data-v-1fb9e5d2 blueBall" wx:key="index2" key="{{index2}}" wx:for="{{item.blueBall}}" wx:for-index="index2" wx:for-item="item2">{{item2}}</label>
+        </view>
+      </view>
+      <view class="_div data-v-1fb9e5d2 messDetail">
+        <view class="_div data-v-1fb9e5d2 arrowRight"></view>
+      </view>
+    </view>
+  </view>
+</template>

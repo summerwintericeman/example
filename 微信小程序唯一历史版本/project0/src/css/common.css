@@ -1,0 +1,67 @@
+page{
+	height:100%;
+	width: 100%;
+	
+}
+.messRight{
+	float: left;
+}
+.messDetail{
+	width: 5%;
+	height: 100%;
+	position: relative;
+}
+.bgcolor .messRight{
+	box-sizing: border-box;
+}
+.bgcolor .messRight>span{
+	margin-right: 10px;
+	color: #999999;
+}
+.messRight .ball>span{
+	color: white;
+	display: block;
+	float: left;
+	border-radius: 50%;
+	text-align: center;
+}
+.messRight .ball .blueBall{
+	background-color: #1775e7;
+}
+.messRight .ball .redBall{
+	background-color: #e73b17;
+}
+.messDetail .arrowRight{
+	height: 8px;
+	width: 8px;
+	border-top: 1px solid #dcdcdc;
+	border-right: 1px solid #dcdcdc;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-color: #cccccc;
+} 
+.messDetail .arrowRight:active{
+	border-color: #e73b17;
+}
+
+
+.getUserMess button{
+	height: 40px;
+	width: 73%;
+	color: white;
+	font-size: 16px;
+	display: block;
+	margin: 0px auto;
+	background-color: #e73b17;
+	font-weight: 600;
+	border: none;
+	border-radius:5px ;
+}
+button::after {
+  border: 0;
+} 

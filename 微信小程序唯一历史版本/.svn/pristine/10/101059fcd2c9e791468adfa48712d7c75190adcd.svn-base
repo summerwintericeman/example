@@ -1,0 +1,82 @@
+import Vue from 'vue'
+import App from './App'
+
+Vue.config.productionTip = false
+App.mpType = 'app'
+
+const app = new Vue(App)
+app.$mount()
+
+export default {
+  // 这个字段走 app.json
+  config: {
+    // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
+    pages: ['pages/logs/main', '^pages/index/main', 'pages/counter/main'],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fe5e39',
+      navigationBarTitleText: '开奖公告',
+      navigationBarTextStyle: 'white'
+    }
+  },
+  	data: {
+			basic_data: [{
+				lotId: 10,
+				lotName: '双色球'
+			},{
+				lotId: 11,
+				lotName: '大乐透'
+			},{
+				lotId: 12,
+				lotName: '福彩3D'
+			},{
+				lotId: 13,
+				lotName: '排列三'
+			},{
+				lotId: 14,
+				lotName: '排列五'
+			},{
+				lotId: 15,
+				lotName: '七星彩'
+			},{
+				lotId: 16,
+				lotName: '七乐彩'
+			}]
+	},
+	getName (ID) {
+		for(var i = 0 ; i < this.data.basic_data.length; i++){
+			if(ID == this.data.basic_data[i].lotId){
+				return this.data.basic_data[i].lotName
+			}
+		}
+	},
+	getFormIds (formId) {
+		var timestamp = (new Date()).getTime();
+		console.log(timestamp);
+		console.log('收集formId的函数');
+		console.log(formId);
+		if(formId != "the formId is a mock one"){
+			//存储formId 数组的形式存在本地最长30
+			try {
+           var value = wx.getStorageSync('formId');
+           if (value) {  
+           }else{
+           	 value = [];
+           }
+          if(value.length == 30){
+          	value.splice(0,1);
+          }
+           value.push(formId);
+           console.log(value);
+            wx.setStorage({
+                key:"formId",
+                data:value
+            })
+      } catch (e) {
+           // Do something when catch error
+      }
+
+		}
+
+	}
+}

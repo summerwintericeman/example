@@ -1,0 +1,46 @@
+<template name="index$5c260901">
+  <view class="_div data-v-df77d456 counter">
+    <view class="_div data-v-df77d456 notgetUserMess" hidden="{{!(!getUser)}}">
+      <view class="_div data-v-df77d456 bgimg"></view>
+      <form action report-submit="true" wx:key="index" key="{{index}}" bindsubmit="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" class="_form data-v-df77d456">
+        <button form-type="submit" class="_button data-v-df77d456 listButton bgcolor">
+          <view class="_div data-v-df77d456 imgLeft">
+            <image src="{{item.src}}" class="_img data-v-df77d456"></image>
+          </view>
+          <view class="_div data-v-df77d456 messRight">
+            <label class="_span data-v-df77d456 title">{{item.lotyName}}</label>
+            <view class="_div data-v-df77d456 date">
+              <label class="_span data-v-df77d456">{{item.issue}}期 　 </label>
+              <label class="_span data-v-df77d456"> {{item.date}}</label>
+            </view>
+            <view class="_div data-v-df77d456 ball">
+              <label class="_span data-v-df77d456 redBall" wx:key="index1" key="{{index1}}" wx:for="{{item.redBall}}" wx:for-index="index1" wx:for-item="item1">{{item1}}</label>
+              <label class="_span data-v-df77d456 blueBall" wx:key="index2" key="{{index2}}" wx:for="{{item.blueBall}}" wx:for-index="index2" wx:for-item="item2">{{item2}}</label>
+            </view>
+          </view>
+          <view class="_div data-v-df77d456 messDetail">
+            <view class="_div data-v-df77d456 arrowRight"></view>
+          </view>
+        </button>
+      </form>
+      <view class="_div data-v-df77d456 resource">本小程序数据来源于:中国福彩网(http://www.cwl.gov.cn)</view>
+      <view class="_div data-v-df77d456 menu">
+        <view class="_div data-v-df77d456 shouye" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-df77d456 imgShouye"></view>
+          <label class="_span data-v-df77d456">首页</label>
+        </view>
+        <view class="_div data-v-df77d456 mine" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-df77d456 imgMine"></view>
+          <label class="_span data-v-df77d456">我的</label>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-df77d456 getUserMess" hidden="{{!(getUser)}}">
+      <view class="_div data-v-df77d456 shouquanimg">
+        <image src="/copy-asset/img/index/shouquan.png" class="_img data-v-df77d456"></image>
+      </view>
+      <view class="_div data-v-df77d456 tipMess">您需要授权才能使用哦</view>
+      <button open-type="getUserInfo" bindgetuserinfo="handleProxy" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_button data-v-df77d456">获取授权</button>
+    </view>
+  </view>
+</template>

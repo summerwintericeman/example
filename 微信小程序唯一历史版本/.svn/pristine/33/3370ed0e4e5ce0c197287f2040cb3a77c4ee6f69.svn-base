@@ -1,0 +1,300 @@
+<template>
+	<div class="counter">	
+		<div class="userMess">
+			<div class="userImg">
+				<img v-bind:src="avatarUrl"/>
+			</div>
+			<div class="nickName">{{nickName}} </div>
+		</div>
+		<div class="linkList">
+			<div  @click="skipMyOrder">
+				<span></span>
+				<span class="secondSpan" >我的订阅</span>
+				<span class="thirdSpan"></span>
+			</div>
+			<div>
+				<span></span>
+				<span class="secondSpan">
+					<button open-type="share">推荐好友</button>
+				</span>
+				<span class="thirdSpan"></span>
+			</div>
+			<!--<div>
+				<span></span>
+				<span class="secondSpan">关于我们</span>
+				<span class="thirdSpan"></span>
+			</div>-->
+		</div>
+		<div class="menu">
+			<div class="shouye" @click="skipIndex">
+				<div class="imgShouye"></div>
+				<span>首页</span>
+			</div>
+			<div class="mine" @click="skipMine">
+				<div class="imgMine"></div>
+				<span>我的</span>
+			</div>
+		</div>
+	</div>
+	
+</template>
+<script>
+import card from '@/components/card'
+
+export default {
+  data () {
+    return {
+      userInfo: {},
+      avatarUrl: '',
+      nickName: ''
+    }
+  },
+
+  components: {
+    card
+  },
+
+  methods: {
+    bindViewTap () {
+      const url = '../logs/main'
+      wx.navigateTo({ url })
+    },
+    getUserInfo () {
+      // 调用登录接口
+      wx.login({
+        success: () => {
+          wx.getUserInfo({
+            success: (res) => {
+              this.userInfo = res.userInfo;
+            }
+          })
+        }
+      })
+    },
+    skipMine () {
+    	var pages = getCurrentPages() //获取加载的页面
+    var currentPage = pages[pages.length-1] //获取当前页面的对象
+  	var URL = currentPage.route;
+  	console.log(URL)
+  	if(URL != 'pages/mine/main'){
+  		console.log('跳转到我的'); 		
+      wx.redirectTo({
+        url: '/pages/mine/main'
+      })
+  	}
+      
+    },
+    skipIndex () {
+      console.log('跳转到首页');
+      wx.redirectTo({
+        url: '/pages/index/main'
+      })
+    },
+    skipMyOrder () {
+      console.log('跳转到我的定阅');
+      wx.navigateTo({
+        url: '/pages/myOrder/main'
+      })
+    }
+  },
+  created () {
+    // 调用应用实例的方法获取全局数据
+    this.getUserInfo()
+  },
+  onShareAppMessage (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '今天中了么',
+//    path: '/pages/mine/main'
+      path: '/pages/index/main'
+    }
+  },
+  onLoad () {
+  	//修改页面的标题
+  	wx.setNavigationBarTitle({
+      title: '我的'
+    });
+    
+  	var that = this;
+  	console.log('调用函数获取用户信息');
+  	wx.getSetting({
+  		success: function(res){
+  			if (res.authSetting['scope.userInfo']) {
+  				 wx.getUserInfo({
+                    success: function(res) {
+                       console.log(res.userInfo)
+                       that.nickName = res.userInfo.nickName;
+                       that.avatarUrl = res.userInfo.avatarUrl;                      
+                    }
+                })
+  			}
+  		}  		
+  	})
+  }
+}
+</script>
+
+<style scoped>
+page{
+	height: 100%;
+}
+.counter {
+  width:100%;
+  height: 100%;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+.userMess{
+	height: 180px;
+	width: 100%;
+	background: -webkit-linear-gradient(#fa5d43, #fca367);
+	position: relative;
+}
+.userImg{
+	height: 80px;
+	width: 80px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 30px auto;
+	border-radius: 50%;
+	background-color: white;
+}
+.userImg img{
+	display: block;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+.nickName{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 30px ;
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+}
+.linkList{
+	padding: 30px 15px 0px 15px;
+}
+.linkList div{
+	height: 40px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0px 10px;
+	position: relative;
+}
+.linkList div span{
+	float: left;
+	display: block;
+	height: 100%;
+}
+.linkList div:nth-child(1) span:nth-child(1){
+	width: 40px;
+	height: 40px;
+	background-image: url(../../img/mine/1.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+.linkList div:nth-child(2) span:nth-child(1){
+	width: 40px;
+	height: 40px;
+	background-image: url(../../img/mine/3.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+.linkList div:nth-child(3) span:nth-child(1){
+	width: 40px;
+	height: 40px;
+	background-image: url(../../img/mine/4.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+.linkList .secondSpan{
+	font-size: 15px;
+	color: black;
+	margin-left: 20px;
+	line-height: 40px;
+	font-weight: 600;
+	width: 80%;
+}
+.linkList .secondSpan button{
+	width: 100%;
+	text-align: left;	
+	display: block;
+	font-size: 15px;
+	font-weight: 600;
+	background-color: transparent;
+	border-color: transparent;
+	border: none;
+	outline: none;
+	color: black;
+	padding: 0;
+}
+.linkList .secondSpan button::after {
+  border: 0;
+} 
+.linkList .thirdSpan{
+	height: 10px !important;
+	width: 10px;
+	border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 15px;
+    top: 13px;
+}
+.menu{
+	padding-top: 5px;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid #cdcdcf;
+	height: 45px;
+	width: 100%;
+}
+.shouye{
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+.mine{
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+.shouye>div,.mine>div{
+	height: 25px;
+	width: 25px;
+	margin: 0 auto;
+}
+.shouye div{
+	background-image: url(../../img/index/shouye.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.mine div{
+	border-radius: 50%;
+	background-image: url(../../img/index/mineActive.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.mine>span{
+	color: #FE5D38;
+}
+.shouye>span,.mine>span{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+</style>

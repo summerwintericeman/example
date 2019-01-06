@@ -1,0 +1,34 @@
+<template name="index$958c7640">
+  <view class="_div data-v-289b6e46 counter">
+    <view class="_div data-v-289b6e46 userMess">
+      <view class="_div data-v-289b6e46 userImg">
+        <image src="{{avatarUrl}}" class="_img data-v-289b6e46"></image>
+      </view>
+      <view class="_div data-v-289b6e46 nickName">{{nickName}} </view>
+    </view>
+    <view class="_div data-v-289b6e46 linkList">
+      <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-289b6e46">
+        <label class="_span data-v-289b6e46"></label>
+        <label class="_span data-v-289b6e46 secondSpan">我的订阅</label>
+        <label class="_span data-v-289b6e46 thirdSpan"></label>
+      </view>
+      <view class="_div data-v-289b6e46">
+        <label class="_span data-v-289b6e46"></label>
+        <label class="_span data-v-289b6e46 secondSpan">
+          <button open-type="share" class="_button data-v-289b6e46">推荐好友</button>
+        </label>
+        <label class="_span data-v-289b6e46 thirdSpan"></label>
+      </view>
+    </view>
+    <view class="_div data-v-289b6e46 menu">
+      <view class="_div data-v-289b6e46 shouye" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-289b6e46 imgShouye"></view>
+        <label class="_span data-v-289b6e46">首页</label>
+      </view>
+      <view class="_div data-v-289b6e46 mine" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-289b6e46 imgMine"></view>
+        <label class="_span data-v-289b6e46">我的</label>
+      </view>
+    </view>
+  </view>
+</template>
