@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>vue局部组件的使用</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<companent-a></companent-a>
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/components-registration.html"> 查看原文</a>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		var ComponentA = {
+			data: function() {
+				return {
+					mess: "局部组件的测试"
+				}
+			},
+			methods: {
+				fn() {
+					console.log(this.mess);
+					alert(this.mess);
+				}
+			},
+			template: '<div class="headClass back_gradient" v-on:click="fn"> {{ mess }} </div>'
+		}
+		new Vue({
+			el: '#app',
+			components: {
+				"companent-a": ComponentA
+			}
+		})
+	</script>
+
+</html>
