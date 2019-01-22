@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>测试上传图片的功能</title>
+		<link rel="shortcut icon" type="image/ico" href="../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	</head>
+	<style type="text/css">
+		html,
+		body {
+			height: 100%;
+			width: 100%;
+		}
+		
+		header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 9;
+		}
+		
+		#contain {
+			padding-top: 0.44rem;
+		}
+		
+		input {
+			display: block;
+			margin: 0 auto;
+			margin-top: 0.2rem;
+		}
+	</style>
+
+	<body>
+		<div id="app">
+			<header class="back_gradient headClass">测试上传图片的功能</header>
+			<div class="contain" id="contain">
+				<!--type: 必须是file
+				multiple ：表示允许多图上传。
+				accept：表示允许接收的图片类型，这里设置为image/*标识 jpg,jepg等常见图片类型都允许
+				capture：表示选择相册，或者拍照，或者摄像头。
+				可选参数：capture=“camera” 手机拍照
+				capture=“camcorder” 手机摄像
+				capture=“microphone” 手机录音-->
+				<input type="file" name="fileinput" id="fileinput" multiple value="" accept="image/*;" />
+			</div>
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../libs/jq/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		var imgList = [];//存放图片的
+		
+		
+		
+		
+	</script>
+
+</html>
