@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>自定义按键修饰符</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+		<div id="app">
+
+			<p>C + D</p>
+			<input @keyup.67.68='clear("触发事件")'>
+			<p>Ctrl + Click</p>
+			<br />
+			<input type="text" @keyup.alt="doSomething"/>
+			<br />
+			<input type="text" @keyup.18="doSomething" />
+			<br />
+			<div @click.ctrl="doSomething">Do something3</div>
+			<p>
+				请注意修饰键与常规按键不同，在和 keyup 事件一起用时，事件触发时修饰键必须处于按下状态。
+				换句话说，只有在按住 ctrl 的情况下释放其它按键，才能触发 keyup.ctrl。
+				而单单释放 ctrl 也不会触发事件。如果你想要这样的行为，请为 ctrl 换用 keyCode：keyup.17。
+				当用键盘码时，只触发键盘码对应的按键就能触发函数，但是用修饰符就需要按下对应的键，才能触发
+			</p>
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/events.html#自动匹配按键修饰符"> 查看原文</a>
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+				clear(message) {
+					alert(message)
+				},
+				warn(message, event) {
+					// 现在我们可以访问原生事件对象
+					console.log(event)
+					if(event) event.preventDefault()
+					alert(message)
+				},
+				doSomething() {
+					console.log("hehehhe");
+				}
+			}
+		})
+	</script>
+
+</html>
