@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<title>测试上传图片的功能</title>
-		<link rel="shortcut icon" type="image/ico" href="../image/common/favicon.ico" />
+		<!--<link rel="shortcut icon" type="image/ico" href="../image/common/favicon.ico" />-->
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
 	</head>
 	<style type="text/css">
@@ -65,6 +65,10 @@
 			top: 0.24rem;
 			left: 0.08rem;
 		}
+		canvas{
+			width: 200px;
+			height: 150px;
+		}
 	</style>
 
 	<body>
@@ -91,7 +95,8 @@
 
 	</body>
 	<script type="text/javascript" src="../libs/jq/jquery-3.3.1.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="uploadPic.js"></script>
+	<!--<script type="text/javascript">
 		var imgList = []; //存放图片的
 		$('#fileinput').on("change", function(e) {
 			e.preventDefault();
@@ -118,15 +123,33 @@
 				reader.readAsDataURL(files);
 				// 读取成功后的回调
 				reader.onload = function(oFREvent) {
-					var base64Url = oFREvent.target.result;
+					var base64Url = oFREvent.target.result;//此步已经获取图片上传后的结果base64编码
+					//只需要用img 的src引用即可获得该图片的显示 
+					//但是图片的大小还需要处理
 					console.log(base64Url);
-					var fileStreamSize = calculaFileSize(base64Url)
-					var compressAfterImgUrl = "";
-					var compressAfterImgSize = "";
-					var newImg = createNewImg(base64Url);
+					//页面上显示图片
+					var img1 = document.querySelector('#showimg1');
+					var img = document.querySelector('#showimg');
+						img.src = base64Url;
+						console.log(base64Url)
+					//计算文件的大小
+					var fileStreamSize = calculaFileSize(base64Url);
+					//根据大小判断是否合适
+					if(fileStreamSize >= 204800){//大于2M的图片
+						console.log(compressImg(img))
+						img1.src = compressImg(img)
+						
+					}else{//小于2M的图片
+						
+					}
+//					var compressAfterImgUrl = "";
+//					var compressAfterImgSize = "";
+//					var newImg = createNewImg(base64Url);
+//					
+					
 //					if(fileStreamSize >= 204800) {
 //						try { //图片过大可能压缩失败，抛出异常
-//							compressAfterImgUrl = compressImg(img);
+//							//compressAfterImgUrl = compressImg(img);
 //							compressAfterImgSize = calculaFileSize(compressAfterImgUrl);
 //							return
 //						} catch(error) {
@@ -185,14 +208,37 @@
 				alert(`文件${file.name}不是图片。`)
 			}
 		}
-
+		// 创建一个新图像
+		function createNewImg(base64Url) {		
+			var imgWidth = 640;
+			var imgHeight = 640;
+			var img = new Image();
+			img.src = base64Url;
+			if(!img.width || img.width == 0) {
+				// 有时图片过大，会压缩失败，出现无法获取宽和高的情况
+				img.width = imgWidth;
+				img.height = imgHeight;
+			}
+			return img;
+		}
+		// 计算base64文件流大小的函数
+		function calculaFileSize(base64) {
+			base64 = base64.substring(22)
+			var equalIndex = base64.indexOf('=')
+			if(base64.indexOf('=') > 0) {
+				base64 = base64.substring(0, equalIndex)
+			}
+			var strLength = base64.length
+			var fileLength = parseInt(strLength - (strLength / 8) * 2)
+			return fileLength
+		}
+		//压缩图片的大小
 		function compressImg(img) { // 压缩图片
-			let self = this
-			const maxSize = 200 * 1024; //200K
-			const maxWidth = 640; //设置最大宽度
-			const maxHeight = maxWidth; //设置最大高度
-			let canvas = document.createElement('canvas')
-			let ctx = canvas.getContext('2d')
+			var maxSize = 200 * 1024; //200K
+			var maxWidth = 640; //设置最大宽度
+			var maxHeight = maxWidth; //设置最大高度
+			var canvas = document.createElement('canvas')
+			var ctx = canvas.getContext('2d')
 
 			if(img.height > maxHeight) {
 				//按最大高度等比缩放
@@ -206,24 +252,13 @@
 			}
 			canvas.width = img.width
 			canvas.height = img.height
-
-			const fileSize = calculaFileSize(base64Url);
-			const compressRate = getCompressRate(maxSize, fileSize);
-			const mineType = getBase64Type(base64Url)
-			var data = canvas.toDataURL(mineType, 0.2) //data url的形式，压缩为20%
+			//const fileSize = calculaFileSize(base64Url);
+			//const compressRate = getCompressRate(maxSize, fileSize);
+//			var mineType = getBase64Type(img.src)
+			var data = canvas.toDataURL("image/png", 0.92) //data url的形式，压缩为20%
 			return data
 		}
-		// 计算base64文件流大小的函数
-		function calculaFileSize(base64) {
-			base64 = base64.substring(22)
-			var equalIndex = base64.indexOf('=')
-			if(base64.indexOf('=') > 0) {
-				base64 = base64.substring(0, equalIndex)
-			}
-			var strLength = base64.length
-			var fileLength = parseInt(strLength - (strLength / 8) * 2)
-			return fileLength
-		}
+
 
 		function dataURLtoBlob(dataURL) {
 			// base64转化为blob对象
@@ -242,25 +277,9 @@
 				type: mimeString
 			});
 		}
-
-		function createNewImg(base64Url) {
-			// 创建一个新图像
-			const imgWidth = 640;
-			const imgHeight = 640;
-			let img = new Image();
-			img.src = base64Url;
-
-			if(!img.width || img.width == 0) {
-				// 有时图片过大，会压缩失败，出现无法获取宽和高的情况
-				img.width = imgWidth;
-				img.height = imgHeight;
-			}
-
-			return img;
-		}
-
-		function getBase64Type(dataURL) {
-			// 获取base64图片类型
+		
+		// 获取base64图片类型
+		function getBase64Type(dataURL) {			
 			var mimeString = dataURL
 				.split(",")[0]
 				.split(":")[1]
@@ -284,6 +303,6 @@
 			}
 			return compressRate;
 		}
-	</script>
+	</script>-->
 
 </html>
