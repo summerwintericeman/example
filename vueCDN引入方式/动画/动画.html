@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>动画</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style>
+			.fade-enter{
+				opacity: 0;
+			}
+			.fade-enter-active{
+				transition: opacity .5s;
+			}
+			.fade-enter-to{
+				opacity: 1;
+			}
+			.fade-leave{
+				
+			}
+			.fade-leave-active {
+				transition: opacity .5s;
+			}		
+			.fade-leave-to{
+				opacity: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<button v-on:click="show = !show">Toggle</button>
+
+			<transition name="fade">
+				<p v-if="show">hello</p>
+			</transition>
+
+			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/transitions.html#概述"> 查看原文</a>
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="allComponent.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				show: true
+			},
+			methods: {
+				say(message) {
+					alert(message)
+				},
+				warn(message, event) {
+					// 现在我们可以访问原生事件对象
+					console.log(event)
+					if(event) event.preventDefault()
+					alert(message)
+				},
+				doThis() {
+					console.log("hehehhe");
+				}
+			}
+		})
+	</script>
+
+</html>
