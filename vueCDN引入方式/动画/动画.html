@@ -8,23 +8,74 @@
 		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
 		<style>
-			.fade-enter{
-				opacity: 0;
+			/*v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+
+v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
+
+v-enter-to:  定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。
+
+v-leave: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
+
+v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
+
+v-leave-to: 2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。*/
+			
+			.fade-enter {
+				width: 400px;
+				background-color: blue;
 			}
-			.fade-enter-active{
-				transition: opacity .5s;
+			
+			.fade-enter-active {
+				transition: width 3s;
 			}
-			.fade-enter-to{
-				opacity: 1;
+			
+			.fade-enter-to {
+				width: 100px;
+				background-color: green;
 			}
-			.fade-leave{
-				
+			
+			.fade-leave {
+				width: 100px;
+				background-color: red;
 			}
+			
 			.fade-leave-active {
-				transition: opacity .5s;
-			}		
-			.fade-leave-to{
-				opacity: 0;
+				transition: width 3s;
+			}
+			
+			.fade-leave-to {
+				width: 400px;
+				background-color: pink;
+			}
+			
+			p {
+				display: block;
+				height: 50px;
+				width: 50px;
+				background-color: blue;
+			}
+			
+			input::-webkit-input-placeholder {
+				color: red;
+				font-size: 20px;
+			}
+			
+			input::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				color: red;
+				font-size: 20px;
+			}
+			
+			input:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				color: red;
+				font-size: 20px;
+			}
+			
+			input:-ms-input-placeholder {
+				/* Internet Explorer 10-11 */
+				color: red;
+				font-size: 20px;
 			}
 		</style>
 	</head>
@@ -34,9 +85,13 @@
 			<button v-on:click="show = !show">Toggle</button>
 
 			<transition name="fade">
-				<p v-if="show">hello</p>
+				<p v-if="show"></p>
 			</transition>
+			<div>
+				css过度中： enter-active和leave-active 一般都只写与运动效果相关的样式，运动中的样式都会写在enter-to和leave-to 中，因为 在运动过程中的时候已经渲染了之后的样式
+			</div>
 
+			<input type="text" placeholder="看看你会不会变颜色" />
 			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/transitions.html#概述"> 查看原文</a>
 
 		</div>
