@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>路由</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			前端路由和后端路由的区别： 后端路由：对于普通的网站，所有的超链接都是url地址，所有的url地址都对应服务器上的资源 前端路由： 对于单页面应用程序来说，主要是通过url中的hash(#号)，来实现不同页面之间的切换 ，同时，hash有一个特点，http请求中不会包括hash相关内容；所以单页面的程序中的页面跳转住要用 hash实现。 在单页面应用中，这种通过hash改变来切换页面的方式，称作前端路由；
+			<br />
+			<br />
+			<a href="#/login">登录</a>
+			<a href="#/register">注册</a>
+			
+			<!--用a标签实现的切换-->
+			<!--官方有专门的跳转标签-->
+			<br />
+			<br />
+			<router-link to="/login" tag="span">登录</router-link>
+			<router-link to="/register">注册</router-link>
+			<br />
+			<br />
+			router-link 默认是渲染为a 标签 可以通过 tag属性进行变换 
+			
+			
+			<router-view>
+				<!--展示路由的容器 路由规则匹配到的组件就会展示到这个位置中-->
+			</router-view>
+
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="../../libs/vue/vue-router.js"></script>
+	<script>
+		//组件
+		var login = {
+			template: '<h1>登录页面</h1>'
+		}
+		var register = {
+			template: '<h1>注册页面</h1>'
+		}
+		//引入
+		var routerObj = new VueRouter({
+			//route  //表示路由匹配规则的意思 
+			routes: [{
+					path: '/login',
+					component: login
+				},
+				{
+					path: '/register',
+					component: register
+				}
+//				,
+//				{
+//					path: '/',
+//					component: login
+//				}
+				,
+				{
+					path: '/',//用这个办法虽然页面的路径是/但是显示的还是login，但是有一个问题是
+					//这个和/login显示不一致，因此出现一个重定向
+					redirect: '/login'
+				}
+			]
+		});
+
+		var vm = new Vue({
+			el: "#app",
+			data: {},
+			methods: {
+
+			},
+			router: routerObj //讲路由规则对象注册到我们的实例上 用来坚挺url的变化然后展示对应的组件
+		})
+	</script>
+
+</html>

@@ -18,14 +18,44 @@
 			<p>
 				调用内建的 $emit 方法并传入事件的名字，来向父级组件触发一个事件，注意这里触发的是事件名字不是函数名字， 事件会通过函数名字调用函数
 			</p>
+			
+			父组件向子组件传递方法和数值func属性名是随便写的
+			<com2 v-on:func="show"> </com2>
+			
+			
 			<a class="button back_gradient" href="https://cn.vuejs.org/v2/guide/components.html#通过事件向父级组件发送消息"> 查看原文</a>
 
 		</div>
+		
+		<template id="tmp1"> 
+			<div>
+				<h1>这是子组件</h1>
+				<input type="button" name="" id="" value="子组件按钮" @click="myClick"/>
+			</div>
+		</template>
 
 	</body>
 	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
 	<script type="text/javascript" src="allComponent.js"></script>
 	<script>
+		
+		var com2 = {
+			template: "#tmp1",
+			data(){
+				return {
+					
+				}
+			}
+			methods:{
+				myClick(){
+					console.log("chufa");
+					//这里也可以直接传递一个data的全部数据对象
+					this.$emit("func",123,456)
+				}
+			}
+		}
+		
+		
 		new Vue({
 			el: '#app',
 			data: {
@@ -41,7 +71,13 @@
 						this.postFontSize += 0.1;
 					}
 
+				},
+				show(data,data2){
+					console.log("调用父组件身上的show方法"+ data + data2)
 				}
+			},
+			components:{
+				com2: com2
 			}
 		})
 	</script>
