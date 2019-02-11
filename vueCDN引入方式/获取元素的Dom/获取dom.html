@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>获取dom操作</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<input type="button"  value="获取元素" @click="getElement"/>
+			<h3 ref="h3"> 哈啊啊哈 今天还可以</h3>
+			
+			
+			<login ref="myLogin"></login>
+		</div>
+		获取节点的操作也可以用来操作组件---
+		获取和调用组件中的方法和数据
+		<br />
+		
+		
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script>
+		var login = {
+			template: '<h1>登陆组件</h1>',
+			data(){
+				return {
+					msg: "xxxx"
+				}
+			},
+			methods:{
+				show(){
+					console.log("111")
+				}
+			}
+		}
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				
+			},
+			methods: {
+				getElement() {
+					console.log(this.$refs.h3.innerText)
+					console.log(this.$refs.myLogin)
+					console.log(this.$refs.myLogin.msg)
+					this.$refs.myLogin.show();
+				}
+			},
+			components:{
+				login: login
+			}
+		})
+	</script>
+
+</html>
