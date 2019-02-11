@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>路由</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			<router-link to="/account"> 展示accoount</router-link>
+			<router-view>
+				<!--展示路由的容器 路由规则匹配到的组件就会展示到这个位置中-->
+			</router-view>
+
+		</div>
+
+		<template id="tmp1">
+			<div>
+				<h1>
+					这是account 组件
+				</h1>
+				<router-link to="/account/login" tag="span">登录</router-link>
+				<router-link to="/account/register">注册</router-link>
+				<br />
+				注意不同的路径拼写对应不同的注册
+				<router-link to="/login" tag="span">登录1</router-link>
+				<router-link to="/register">注册1</router-link>
+				<br />
+				注意不同的路径拼写对应不同的注册
+				<router-link to="/account/login" tag="span">登录2</router-link>
+				<router-link to="/account/register">注册2</router-link>
+				
+				<router-view>
+					<!--展示路由的容器 路由规则匹配到的组件就会展示到这个位置中-->
+				</router-view>
+			</div>
+		</template>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="../../libs/vue/vue-router.js"></script>
+	<script>
+		//组件
+		var login = {
+			template: '<h1>登录页面</h1>'
+		}
+		var register = {
+			template: '<h1>注册页面</h1>'
+		}
+		var login1 = {
+			template: '<h1>登录页面1</h1>'
+		}
+		var register1 = {
+			template: '<h1>注册页面1</h1>'
+		}
+		var login2 = {
+			template: '<h1>登录页面2</h1>'
+		}
+		var register2 = {
+			template: '<h1>注册页面2</h1>'
+		}
+		var account = {
+			template: '#tmp1'
+		}
+		
+		//引入
+		var routerObj = new VueRouter({
+			//route  //表示路由匹配规则的意思 
+			routes: [{
+				path: '/account',
+				component: account,
+				children: [//完整的路径对应完整的  这里可写成不要/的但是router-link的路径必须是完整的/account/register，router-link不完整的/login时候入登录1则这里也必须是不完整的 /login
+					{
+						path: 'register',
+						component: register2
+					},
+					{
+						path: 'login',
+						component: login2
+					},
+					{
+						path: '/account/register',
+						component: register
+					},
+					{
+						path: '/account/login',
+						component: login
+					},
+					{
+						path: '/register',
+						component: register1
+					},
+					{
+						path: '/login',
+						component: login1
+					}
+				]
+			}]
+		});
+
+		var vm = new Vue({
+			el: "#app",
+			data: {},
+			methods: {
+
+			},
+			router: routerObj //讲路由规则对象注册到我们的实例上 用来坚挺url的变化然后展示对应的组件
+		})
+	</script>
+
+</html>
