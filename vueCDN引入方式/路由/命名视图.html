@@ -13,28 +13,13 @@
 
 		<div id="app">
 
-			有时候想同时 (同级) 展示多个视图，而不是嵌套展示，例如创建一个布局，
-			有 sidebar (侧导航) 和 main (主内容) 两个视图，这个时候命名视图就派上用场了。
-			你可以在界面中拥有多个单独命名的视图，
-			而不是只有一个单独的出口。如果 router-view 没有设置名字，那么默认为 default。
-		
-			<a href="#/login">登录</a>
-			<a href="#/register">注册</a>
-			
-			<!--用a标签实现的切换-->
-			<!--官方有专门的跳转标签-->
-			<br />
-			<br />
-			<router-link to="/login" tag="span">登录</router-link>
-			<router-link to="/register">注册</router-link>
-			<br />
-			<br />
-			router-link 默认是渲染为a 标签 可以通过 tag属性进行变换 
-			
-			
-			<router-view>
-				<!--展示路由的容器 路由规则匹配到的组件就会展示到这个位置中-->
-			</router-view>
+			有时候想同时 (同级) 展示多个视图，而不是嵌套展示，例如创建一个布局， 有 sidebar (侧导航) 和 main (主内容) 两个视图，这个时候命名视图就派上用场了。 你可以在界面中拥有多个单独命名的视图， 而不是只有一个单独的出口。如果 router-view 没有设置名字，那么默认为 default。
+
+			<router-view></router-view>
+			<div class="container">
+				<router-view name="left"></router-view>
+				<router-view name="main"></router-view>
+			</div>
 
 		</div>
 
@@ -43,35 +28,26 @@
 	<script type="text/javascript" src="../../libs/vue/vue-router.js"></script>
 	<script>
 		//组件
-		var login = {
-			template: '<h1>登录页面</h1>'
+		var header = {
+			template: '<h1>header</h1>'
 		}
-		var register = {
-			template: '<h1>注册页面</h1>'
+		var leftBox = {
+			template: '<h1>leftBox</h1>'
+		}
+		var mainBox = {
+			template: '<h1>mainBox</h1>'
 		}
 		//引入
 		var routerObj = new VueRouter({
 			//route  //表示路由匹配规则的意思 
 			routes: [{
-					path: '/login',
-					component: login
-				},
-				{
-					path: '/register',
-					component: register
+				path: '/',
+				components: {
+					default: header,
+					left: leftBox,
+					main: mainBox
 				}
-//				,
-//				{
-//					path: '/',
-//					component: login
-//				}
-				,
-				{
-					path: '/',//用这个办法虽然页面的路径是/但是显示的还是login，但是有一个问题是
-					//这个和/login显示不一致，因此出现一个重定向
-					redirect: '/login'
-				}
-			]
+			}]
 		});
 
 		var vm = new Vue({
