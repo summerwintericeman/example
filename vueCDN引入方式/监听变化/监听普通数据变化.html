@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>监听变化</title>
+		<link rel="shortcut icon" type="image/ico" href="../../image/common/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+
+	<body>
+
+		<div id="app">
+				监听数据的改变
+				<input type="text" v-model="firstName"/>+ 
+				<input type="text" v-model="secondName"/>=
+				<input type="text" v-model="fullName"/>
+				
+				
+				
+				
+				
+				
+				
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../libs/vue/vue.js"></script>
+	<script type="text/javascript" src="../../libs/vue/vue-router.js"></script>
+	<script>
+		
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				firstName: '',
+				secondName: '',
+				fullName: ''
+			},
+			methods: {
+
+			},
+			watch:{
+				firstName: function(newVal,oldVal){
+					console.log(oldVal);
+					console.log(newVal);
+				}
+			}
+			
+		})
+	</script>
+
+</html>
