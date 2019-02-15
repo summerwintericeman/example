@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>transition</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-size: 30px;
+			}
+			#move{
+				height: 100px;
+				width: 100px;
+				background-color: rgba(0,0,0,0);
+				border: 1px solid red;
+				transition: background-color 2s ease-in-out 1s;
+			}
+			#move:hover{
+				height: 100px;
+				width: 100px;
+				background-color: rgba(0,0,0,1);
+				transition: background-color 2s ease-in-out 1s;
+			}
+			a:hover{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		hover效果出现的时候实现动画，取消的时候也实现动画
+		
+		
+		<a href="#">transition的实现动画</a>
+		<div id="move">
+			
+		</div>
+		
+		
+		总结： 只要节点的大小或者颜色等属性发生变化，就可以触发动画的效果，不管是hover或者是点击事件等
+		
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var move = document.getElementById("move");
+			move.style.backgroundColor = "rgba(0,0,0,1)";
+		}
+		
+		
+		
+		
+	</script>
+</html>
