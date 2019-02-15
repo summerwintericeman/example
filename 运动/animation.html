@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>animation</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 30px;
+			}
+			
+			#move {
+				height: 100px;
+				width: 100px;
+				background-color: rgba(0, 0, 0, 0);
+				border: 1px solid red;
+				animation: myfirst 5s;
+				-webkit-animation: myfirst 5s;
+				/* Safari 与 Chrome */
+			}
+			
+			@keyframes myfirst {
+				from {
+					background: red;
+				}
+				to {
+					background: yellow;
+				}
+			}
+			
+			@-webkit-keyframes myfirst{
+				from {
+					background: red;
+				}
+				to {
+					background: yellow;
+				}
+			}
+			
+			/*另外的细节控制办法*/
+			/*@keyframes myfirst {
+				0% {
+					background: red;
+				}
+				25% {
+					background: yellow;
+				}
+				50% {
+					background: blue;
+				}
+				100% {
+					background: green;
+				}
+			}
+			
+			@-webkit-keyframes myfirst {
+				0% {
+					background: red;
+				}
+				25% {
+					background: yellow;
+				}
+				50% {
+					background: blue;
+				}
+				100% {
+					background: green;
+				}
+			}*/
+			
+			
+		</style>
 	</head>
+
 	<body>
-		
-		
-		
-		
+
+		预先写入移动的方式，旋转移动等， 触发后，依旧用transition操作
+
+		<div id="move">
+
+		</div>
+
 	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			//			
+		}
+	</script>
+
 </html>
