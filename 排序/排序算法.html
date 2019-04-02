@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>排序算法</title>
+	</head>
+
+	<body>
+
+	</body>
+	<script src="../libs/jq/jquery-3.3.1.js"></script>
+	<script>
+		$(function() {
+			//1.冒泡排序 从小到大排
+			var arr0 = [2, 3, 4, 1, 7, 3, 4, 5, 9];
+
+			function bubbleSort(arr) {
+				for(var i = 0; i < arr0.length; i++) {
+					for(var j = i + 1; j < arr0.length; j++) {
+						var temp = '';
+						if(arr0[i] > arr0[j]) {
+							temp = arr0[i];
+							arr0[i] = arr0[j];
+							arr0[j] = temp;
+						}
+					}
+
+				}
+				console.log(arr0)
+			}
+			bubbleSort(arr0);
+			//2.选择排序
+			var arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+
+			function selectionSort(arr1) {
+				var minIndex, temp;　　　
+				for(var i = 0; i < arr1.length - 1; i++) {　　　　
+					minIndex = i;　　　　
+					for(var j = i + 1; j < arr1.length; j++) {　　　　　　
+						if(arr1[j] < arr1[minIndex]) { //寻找最小的数　　　　　　
+							minIndex = j; //将最小数的索引保存　
+						}　　　　
+					}　　　　
+					temp = arr1[i];　　　　
+					arr1[i] = arr1[minIndex];　　　　
+					arr1[minIndex] = temp;　　
+				}　　
+				console.log(arr1);　　
+			}
+			selectionSort(arr1)
+			//3.插入排序
+			//直接插入排序是一种简单的插入排序法，其基本思想是：把待排序的记录按其关键码值的大小逐个插入到一个已经排好序的有序序列中，
+			//直到所有的记录插入完为止，得到一个新的有序序列。
+			var arr2 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+
+			function insertionSort(array) {
+				for(var i = 0; i < array.length; i++) {
+					var temp = array[i];
+					j = i - 1;
+					while(j > -1 &&　temp < array[j]){
+						
+					}
+					
+					
+				}
+
+				for(i = 1; i < n; i++) {
+					temp = r[i];
+					j = i - 1;
+					while(j > -1 && temp.key < r[j].key) {
+						r[j + 1] = r[j];
+						j--;
+					}
+					r[j + 1] = temp;
+				}
+
+				　　　
+				//				for(var i = 1; i < array.length; i++) {　　　　
+				//					var key = array[i];　　　　
+				//					var j = i - 1;　　　　
+				//					while(array[i - 1] > array[i]) {　　　　　　
+				//						array[i] = array[i - 1];　　　　　
+				//						i--;　　　　
+				//					}　　　　
+				//					array[i] = key;　　
+				//				}　　　
+				//				console.log(arr2);
+
+			}
+			insertionSort(arr2)
+
+			//4.
+		})
+	</script>
+
+</html>
