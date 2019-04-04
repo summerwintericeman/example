@@ -12,67 +12,72 @@
 	<script src="../libs/jq/jquery-3.3.1.js"></script>
 	<script>
 		$(function() {
-			//1.冒泡排序 从小到大排
+			//1.冒泡排序  从小到大的顺序
+			//比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+			//对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+			//针对所有的元素重复以上的步骤，除了第一个。
+			//持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 			var arr0 = [2, 3, 4, 1, 7, 3, 4, 5, 9];
 
-			function bubbleSort(arr) {
-				for(var i = 0; i < arr0.length; i++) {
-					for(var j = i + 1; j < arr0.length; j++) {
+			function bubbleSort(array) {
+				for(var i = 0; i < array.length - 1; i++) {
+					for(var j = i + 1; j < array.length; j++) {
 						var temp = '';
-						if(arr0[i] > arr0[j]) {
-							temp = arr0[i];
-							arr0[i] = arr0[j];
-							arr0[j] = temp;
+						if(array[i] > array[j]) {
+							temp = array[i];
+							array[i] = array[j];
+							array[j] = temp;
 						}
 					}
-
 				}
-				console.log(arr0)
+				console.log(array)
 			}
 			bubbleSort(arr0);
-			//2.选择排序
-			var arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+			//2.选择排序 
+			//选择排序（Selection sort）是一种简单直观的排序算法。
+			//它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，
+			//存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，
+			//然后放到已排序序列的末尾。以此类推，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法
+			var arr1 = [3, 5, 2, 4];
 
-			function selectionSort(arr1) {
-				var minIndex, temp;　　　
-				for(var i = 0; i < arr1.length - 1; i++) {　　　　
-					minIndex = i;　　　　
-					for(var j = i + 1; j < arr1.length; j++) {　　　　　　
-						if(arr1[j] < arr1[minIndex]) { //寻找最小的数　　　　　　
-							minIndex = j; //将最小数的索引保存　
-						}　　　　
-					}　　　　
-					temp = arr1[i];　　　　
-					arr1[i] = arr1[minIndex];　　　　
-					arr1[minIndex] = temp;　　
-				}　　
-				console.log(arr1);　　
+			function selectionSort(arr) {
+				var tempIndex = 0;
+				var temp = arr[0];
+				for(var i = 0; i < arr.length - 1; i++) {
+					tempIndex = i; //假设第一个为最小的数值  标志位
+					for(var j = i + 1; j < arr.length; j++) {
+						if(arr[j] < arr[tempIndex]) { //如果后面有更小的
+							tempIndex = j;
+							//循环后面的数组只用找出最小值和最小值的位置即可
+						}
+					}
+					//最小位置的数和外层循环的其实位置的数对换
+					temp = arr[i];
+					arr[i] = arr[tempIndex]; //如果有这是最新的
+					arr[tempIndex] = temp;
+				}
+				console.log(arr)
 			}
 			selectionSort(arr1)
+
 			//3.插入排序
-			//直接插入排序是一种简单的插入排序法，其基本思想是：把待排序的记录按其关键码值的大小逐个插入到一个已经排好序的有序序列中，
+			//直接插入排序是一种简单的插入排序法，其基本思想是：把待排序的记录
+			//按其关键码值的大小逐个插入到一个已经排好序的有序序列中，
 			//直到所有的记录插入完为止，得到一个新的有序序列。
-			var arr2 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+			var arr2 = [3, 5, 2, 4];
 
 			function insertionSort(array) {
-				for(var i = 0; i < array.length; i++) {
-					var temp = array[i];
-					j = i - 1;
-					while(j > -1 &&　temp < array[j]){
-						
+				var index, temp;
+				for(var i = 2; i < arr.length; i++) {//还未排序的数组
+					for(var j = 0; j < i - 1 ; j++ ){//已经排好序的数组
+						if(arr[i] < arr[0]){//小于最小值
+							
+						} else if(arr[i] > arr[i-1]){//大于最大值
+							
+						} else if(arr[j] <= arr[i] <= arr[j+1]){//处于中间的状态
+							
+						}
 					}
-					
-					
-				}
-
-				for(i = 1; i < n; i++) {
-					temp = r[i];
-					j = i - 1;
-					while(j > -1 && temp.key < r[j].key) {
-						r[j + 1] = r[j];
-						j--;
-					}
-					r[j + 1] = temp;
 				}
 
 				　　　
@@ -88,9 +93,15 @@
 				//				console.log(arr2);
 
 			}
-			insertionSort(arr2)
+			//insertionSort(arr2)
 
-			//4.
+			//4.希尔排序
+			//5.归并排序
+			//6.快速排序
+			//7.堆排序
+			//8.计数排序
+			//9.桶排序
+			//10.基数排序
 		})
 	</script>
 
