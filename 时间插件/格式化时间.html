@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>格式化时间</title>
+	</head>
+
+	<body>
+		格式化时间
+	</body>
+	<script type="text/javascript" src="../libs/date/moment.js"></script>
+	<script type="text/javascript" src="../libs/jq/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		//实现时间格式化的一个插件
+		//文档地址： http://momentjs.com/docs/
+		$(function(){
+			//获取当前时间     moment接受一个时间对象或者一个 时间的字符串
+			var ss = new Date(1533686888000);
+			console.log(ss)
+			var now = moment(ss);
+			console.log(now.toObject())
+            var now1 = moment("2018-08-04 12:12:30");
+			console.log(now1.toObject())
+
+
+
+			//获取毫秒  如果传入一个0-999的值 表示修改当前毫秒为给定值
+			var millisecond = moment().millisecond();
+			console.log(millisecond)
+			//获取当前的秒数 如果传入一个0-59的值 表示修改当前秒为给定值
+			var second = moment().second();
+			console.log(second)
+			//同理的还有小时  周 等 
+			var hour = moment().hour();
+			console.log(hour)
+			var date = moment().date();
+			console.log(date)
+			var month = moment().month();
+			console.log(month)
+//			var day = moment().day(); 
+//			console.log(day)
+			var dayOfYear = moment().dayOfYear();
+			console.log(dayOfYear)
+			var weekYear = moment().weekYear();
+			console.log(weekYear)
+			
+			
+			//或者如下的语法
+			console.log(moment().get('year'));
+			console.log(moment().get('month'));  // 0 to 11
+			console.log(moment().get('date'));
+			console.log(moment().get('hour'));
+			console.log(moment().get('minute'));
+			console.log(moment().get('second'));
+			console.log(moment().get('millisecond'));
+			
+			//获取较大的时间
+			var a = moment().subtract(1, 'day');
+			console.log(a)
+			var b = moment().add(1, 'day');
+			console.log(b)
+			var max = moment.max(a, b);
+			console.log(max)
+			
+			
+			
+			//2009-03-08T00:00:00+08:00
+			var xxx = moment().add(3, 'days').subtract(2, 'months').year(2009).hours(0).minutes(0).seconds(0);
+			//2009-02-04T00:00:00+08:00
+			console.log(xxx.format())
+			
+			var utc = moment().utc();
+			console.log(utc)
+			//按照某个格式获取
+			
+			var a = moment().format("YYYY-MM-DD HH-mm-ss");
+			console.log(a)
+			
+			var xx = moment().toObject();
+			console.log(xx)
+			
+			
+			
+		})
+	</script>
+
+</html>
