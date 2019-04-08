@@ -35,9 +35,9 @@ module.exports = {
 			{test: /\.css$/,use:["style-loader","css-loader"]},//匹配所有.css结尾的文件并用所给插件处理
 			{test: /\.less$/,use:["style-loader","css-loader","less-loader"]},//使用less文件  less文件也许要 css 和style
 			{test: /\.scss$/,use:["style-loader","css-loader","sass-loader"]},//使用less文件  less文件也许要 css 和style
-			{test: /\.(jpg||png||gif||jpeg||bmp)$/,use:"url-loader?limit=21248&name=[hash:8]-[name].[ext]"},//webpack默认只识别js引入不支持url，使用url-loader处理所有的url引入问题，还需要支持url 的file-loader
+			{test: /\.(jpg|png|gif|jpeg|bmp)$/,use:"url-loader?limit=21248&name=[hash:8]-[name].[ext]"},//webpack默认只识别js引入不支持url，使用url-loader处理所有的url引入问题，还需要支持url 的file-loader
 			//传参数 类似 url 传参   图片默认被识别成base64  图片大于则是链接 小于则base64 name=[name].[ext]前后文件名一致 但是不同文件夹文件名一样的时候会出现问题 因此还需要增加哈希值来区别  [hash:8]-[name].[ext]  [hash:8]哈希有32位截取前8位
-			{test: /\.(ttf||eot||svg||woff||woff2)$/,use:'url-loader'},//处理字体文件的
+			{test: /\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'},//处理字体文件的
 			{test: /\.js$/,use:'babel-loader',exclude:/node_modules/},//配置babel转换es6的办法
 			{test: /\.vue$/,use: "vue-loader"}//处理.vue文件 
 		]
