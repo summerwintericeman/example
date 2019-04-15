@@ -20,13 +20,13 @@ var Schema = mongoose.Schema;
 // })
 
 //链接数据库  2
-mongoose.connect('mongodb://localhost/test',{ useNewUrlParser: true },function(err){
-    if(err){
-        console.log(err);
-        return;
-    }else{
-        console.log('成功链接数据库')
-    }
+mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true }, function (err) {
+  if (err) {
+    console.log(err);
+    return;
+  } else {
+    console.log('成功链接数据库')
+  }
 });
 
 
@@ -35,21 +35,28 @@ mongoose.connect('mongodb://localhost/test',{ useNewUrlParser: true },function(e
 //操作表或者集合的时候 需要先定义一个Schema 里面的字段需要和数据库里面的一一对应
 //Schema  不能操作数据库 只是一个模型
 var blogSchema = new Schema({
-    title: String,
-    author: String,
-    body: String,
-    comments: [{ body: String, date: Date }],
-    date: { type: Date, default: Date.now },//传入默认参数的方法 
-    hidden: Boolean,
-    meta: {
-      votes: Number,
-      favs: Number
-    }
-  });
-
+  title: String,
+  author: String,
+  body: String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },//传入默认参数的方法 
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs: Number
+  }
+});
+var blogSchema1 = new Schema({
+  title: String,
+  author: String,
+  body: String,
+  age: Number,
+  height: Number
+});
 
 //操作数据表需要 用到 Model  模型 
-var Blog = mongoose.model('Blog', blogSchema,'blogs');
+var Blog1 = mongoose.model('Blog1', blogSchema1, 'blog1');
+var Blog = mongoose.model('Blogs', blogSchema, 'blogs');
 //可传入参数 为 两位 或者三位  var Blog = mongoose.model('数据库表名称', Schema名称，需要操作的表的名称);  不传第三位 则默认操作 带s的
 
 //查询表的数据
@@ -65,19 +72,14 @@ var Blog = mongoose.model('Blog', blogSchema,'blogs');
 
 //增加表的数据 
 //实例化一个model  .save来保存 
-// var blogModel = new Blog({//需要增加的数据的具体内容
+// var blogModel1 = new Blog1({//需要增加的数据的具体内容
 //     title: '孙小红测试',
 //     author: '孙小红',
-//     body: '测试测试测试',
-//     comments: [{ body: '测试测试测试'}],
-//     hidden: true,
-//     meta: {
-//       votes: 1,
-//       favs: 1
-//     }
+//     age: 21,
+//     height: 171
 // })
 // //增加数据的办法
-// blogModel.save(function(err,res){
+// blogModel1.save(function(err,res){
 //     if(err){
 //         console.log(err);
 //         return;
@@ -134,18 +136,71 @@ var Blog = mongoose.model('Blog', blogSchema,'blogs');
 //   });
 
 
+//mongoose中的静态方法
+//扩展静态方法需要在 schema上进行扩展    上面定义的schema  blogSchema
+
+// blogSchema.statics.findByAuthor = function(author,cb){
+//   this.find({'author': author},function(err,res){
+//       if(err){
+//         console.log(err)
+//         return;
+//       }else{
+//         console.log(res)
+//         cb(res)
+//       }
+//   })
+// }
+
+// var Blog = mongoose.model('Blog', blogSchema,'blogs');//实例化需要在静态方法定义以后 以免无法调用
+
+// //使用的时候需要在实例上使用
+// Blog.findByAuthor('孙小红',function(err,res){
+//   if(err){
+//     console.log(err);
+//     return;
+//   }else{
+//     console.log(res)
+//   }
+// })
+//
+
+//实例方法类似于 实例化一个schema后调用save保存  相对应的save即时实例化的方法
+
+
+
+//数据校验  增加数据的时候 进行互数据的合法性校验  
+//目的是 保证数据和数据库保存的的一致性 
+//http://mongoosejs.net/docs/validation.html
 
 
 
 
+//聚合管道 
 
 
+// Blog.aggregate([{
+//   $lookup: { from: 'blog1', localField: 'author', foreignField: 'author', as: 'blogs' }
+// }
+// ], function (err, res) {
+//   console.log(JSON.stringify(res))
+// });
+
+// const aggregateA = Blog.aggregate([
+//   { 
+//     $lookup: { from: 'blog1', localField: 'author', foreignField: 'author', as: 'blogs' } 
+//   }
+// ]);
+// aggregateA.exec(function(err,res){
+//   console.log(res)
+// })
+
+// Blog.aggregate([
+//   { 
+//     $lookup: { from: 'blog1', localField: 'author', foreignField: 'author', as: 'blogs' } 
+//   }
+// ]).exec(function(err,res){
+//   console.log(JSON.stringify(res))
+// })
 
 
-
-
-
-
-
-
-
+//还有一些其他的参数在聚合管道中
