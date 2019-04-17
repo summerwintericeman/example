@@ -203,4 +203,5 @@ var Blog = mongoose.model('Blogs', blogSchema, 'blogs');
 // })
 
 
-//还有一些其他的参数在聚合管道中
+//还有一些其他的参数在聚合管道中 参考mongoDb 参考文档
+
