@@ -115,7 +115,7 @@ var Blog = mongoose.model('Blog', blogSchema,'blogs');
 
 //预定义模式修饰符
 //例如 定义 映射 Schema的时候 
-//预定义修饰符种类 具体参考文档
+//预定义修饰符种类 具体参考文档 
 //
 // var blogSchema = new Schema({
 //     title: {   // -------------- 预定义修饰  表示 增加的数据会处理前后的空格
@@ -132,6 +132,8 @@ var Blog = mongoose.model('Blog', blogSchema,'blogs');
 //       favs: Number
 //     }
 //   });
+
+//mongoose使用索引
 
 
 
