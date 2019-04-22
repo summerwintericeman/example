@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="../libs/jq/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log('测试ajax请求接口');
+			//http://127.0.0.1:3000/api/user/login
+			//https://api.lottery666.com/info/award/11?issue=0&limit=20&identity=com.houcai.letoula&platform=3
+			$.ajax({
+					type: "post",
+					url: 'http://127.0.0.1:3000/api/user/register',
+					async: true,
+					data:{
+						name: 'hehda',
+						age: '12'
+					},
+					success: function(data) {
+						console.log(data)
+					},
+					error: function(data){
+						console.log(data)
+					}
+				});
+			
+			
+		})
+	</script>
+</html>
