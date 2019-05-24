@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>浏览器的宽高数据</title>
+</head>
+
+<body>
+	<p id="windowInnerHeight"></p>
+	<p id="windowInnerWidth"></p>
+	<p id="windowOuterHeight"></p>
+	<p id="windowOuterWidth"></p>
+	<p id="windowScreenAvailHeight"></p>
+
+
+</body>
+<script src="./js/jquery-3.3.1.js"></script>
+<script>
+	$(function () {
+		console.log(window);
+		console.log(window.screen)
+		// window的四个数据
+		let windowInnerHeight = window.innerHeight;
+		$('#windowInnerHeight').html('window.innerHeight: ' + windowInnerHeight + 'px');
+		let windowInnerWidth = window.innerWidth;
+		$('#windowInnerWidth').html('window.innerWidth: ' + windowInnerWidth + 'px');
+		let windowOuterHeight = window.outerHeight;
+		$('#windowOuterHeight').html('window.outerHeight: ' + windowOuterHeight + 'px');
+		let windowOuterWidth = window.outerWidth;
+		$('#windowOuterWidth').html('window.outerWidth: ' + windowOuterWidth + 'px');
+
+		// window.screen的数据
+		let windowScreenAvailHeight = window.screen.availHeight;
+		$('#windowScreenAvailHeight').html('window.screen.availHeight: ' + windowScreenAvailHeight + 'px');
+
+
+
+		// availHeight: 1050
+		// availLeft: 0
+		// availTop: 0
+		// availWidth: 1920
+		// colorDepth: 24
+		// height: 1080
+		// keepAwake: false
+		// orientation: ScreenOrientation {angle: 0, type: "landscape-primary", onchange: null}
+		// pixelDepth: 24
+		// width: 1920
+
+
+
+	})
+</script>
+
+</html>
